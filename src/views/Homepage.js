@@ -5,7 +5,7 @@ import {FilteringMenu} from '../components/FilteringMenu'
 export const Homepage = (props) => {
     return (
         <div>
-            <Header/>
+            {/* <Header/> */}
     <div className="columns">
       <FilteringMenu />
       <div className="column">

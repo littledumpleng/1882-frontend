@@ -24,11 +24,11 @@ export const Header = (props) => {
         </div>
         <div id="navMenu" className="navbar-menu">
           <div className="navbar-end">
-            <a href="index.html" className="navbar-item">Home</a>
-            <a href="about.html" className="navbar-item">About</a>
-            <a href="suggestion.html" className="navbar-item">Make a Suggestion</a>
-            <a href="featured.html" className="navbar-item">Featured Reviews</a>
-            <a href="contact.html" className="navbar-item">Contact Us</a>
+            <a href="/home" className="navbar-item">Home</a>
+            <a href="/about" className="navbar-item">About</a>
+            <a href="/suggestion" className="navbar-item">Make a Suggestion</a>
+            <a href="/featured" className="navbar-item">Featured Reviews</a>
+            <a href="/contact" className="navbar-item">Contact Us</a>
           </div>
         </div>
       </nav>

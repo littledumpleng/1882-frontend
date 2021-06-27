@@ -5,7 +5,7 @@ import {Review} from '../components/Review'
 export const Featured = (props) => {
     return (
         <div>
-            <Header/>
+            {/* <Header/> */}
             <h1>Featured Reviews</h1>
             <div>
                 <Review/>

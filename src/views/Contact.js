@@ -4,7 +4,7 @@ import {Header} from '../components/Header'
 export const Contact = (props) => {
     return (
         <div>
-            <Header/>
+            {/* <Header/> */}
         <h1>Contact Us</h1>
 
             <div className="content_element">

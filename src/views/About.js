@@ -1,10 +1,8 @@
 import React from 'react';
-import {Header} from '../components/Header'
 
 export const About = (props) => {
     return (
         <div>
-        <Header/>
         <h1>About</h1>
 
         <div className ="contents">

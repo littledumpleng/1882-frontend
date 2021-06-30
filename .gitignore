@@ -4,7 +4,3 @@ node_modules
 # apple code
 .DS_Store
 src/.DS_Store
-
-# node js packages
-package.json
-package-lock.json

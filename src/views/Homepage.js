@@ -1,11 +1,9 @@
 import React from 'react';
-import {Header} from '../components/Header'
 import {FilteringMenu} from '../components/FilteringMenu'
 
 export const Homepage = (props) => {
     return (
-        <div>
-            {/* <Header/> */}
+      <div>
     <div className="columns">
       <FilteringMenu />
       <div className="column">

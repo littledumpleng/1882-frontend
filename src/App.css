@@ -262,7 +262,6 @@ form {
     .banner .inner-menu { 
         display: none;
     }
-
     .banner .inner-menu.active{
         display: block;
     }

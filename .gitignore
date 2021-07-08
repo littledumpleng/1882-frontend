@@ -1,6 +1,1 @@
-# not our code
 node_modules
-
-# apple code
-.DS_Store
-src/.DS_Store

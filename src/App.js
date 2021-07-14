@@ -14,10 +14,13 @@ const App = () => {
       <Header />
       <Router>
         <div>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
           <Route exact path="/home">
             <Homepage />
           </Route>
-          <Route path="/contact">
+          <Route exact path="/contact">
             <Contact />
           </Route>
           <Route exact path="/about">

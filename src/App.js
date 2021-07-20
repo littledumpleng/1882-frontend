@@ -6,7 +6,7 @@ import {Contact} from './views/Contact';
 import {Featured} from './views/Featured';
 import {About} from './views/About';
 import {Header} from './components/Header';
-
+import {Footer} from './components/Footer';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         <div>
           <Route exact path="/">
             <Redirect to="/home" />
-          </Route>
+          </Route>s
           <Route exact path="/home">
             <Homepage />
           </Route>
@@ -31,6 +31,7 @@ const App = () => {
           </Route>
       </div>
       </Router>
+      <Footer />
     </div>
   );
 }

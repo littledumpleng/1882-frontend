@@ -13,7 +13,7 @@ export const Footer = (props) => {
             width="198"
           />
           <span id="titles">Literature & Art Corner Database</span>
-          <a href="/contact" className="navbar-item">Admin Login</a>
+          <a href="/admin" className="navbar-item">Admin Login</a>
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import {Featured} from './views/Featured';
 import {About} from './views/About';
 import {Header} from './components/Header';
 import {Footer} from './components/Footer';
+import {Admin} from './views/Admin';
 
 const App = () => {
   return (
@@ -16,7 +17,7 @@ const App = () => {
         <div>
           <Route exact path="/">
             <Redirect to="/home" />
-          </Route>s
+          </Route>
           <Route exact path="/home">
             <Homepage />
           </Route>
@@ -28,6 +29,9 @@ const App = () => {
           </Route>
           <Route exact path="/featured">
             <Featured />
+          </Route>
+          <Route exact path="/admin">
+            <Admin />
           </Route>
       </div>
       </Router>

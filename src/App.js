@@ -8,14 +8,15 @@ import { Featured } from './views/Featured';
 import { About } from './views/About';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import Login from './views/LoginPage';
+import LoginPage from './views/LoginPage';
 import { AdminDash } from './views/AdminDash';
 
 const App = () => {
   const [token, setToken] = useState();
 
   if (!token) {
-    return <Login setToken={setToken} />
+    return <LoginPage setToken={setToken} />
+    // add header and footer
   }
 
   return (
@@ -38,11 +39,14 @@ const App = () => {
           <Route exact path="/featured">
             <Featured />
           </Route>
-          <Switch>
-            <Route exact path="/admindash">
+          {/* <Route exact path="/login">
+            <LoginPage />
+          </Route> */}
+          {/* <Switch> */}
+            <Route exact path="/login">
               <AdminDash />
             </Route>
-          </Switch>
+          {/* </Switch> */}
         </div>
       </Router>
       <Footer />

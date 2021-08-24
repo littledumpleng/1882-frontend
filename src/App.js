@@ -8,11 +8,15 @@ import { Featured } from './views/Featured';
 import { About } from './views/About';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { Login } from './views/Login';
+import Login from './views/LoginPage';
 import { AdminDash } from './views/AdminDash';
 
 const App = () => {
   const [token, setToken] = useState();
+
+  if (!token) {
+    return <Login setToken={setToken} />
+  }
 
   return (
     <div className="App">
@@ -34,14 +38,11 @@ const App = () => {
           <Route exact path="/featured">
             <Featured />
           </Route>
-          <Route exact path="/login">
-            {/* took out the stuff with if from tutorial */}
-              <Login setToken={setToken} />
-            
-          </Route>
-          <Route exact path="/admindash">
-            <AdminDash />
-          </Route>
+          <Switch>
+            <Route exact path="/admindash">
+              <AdminDash />
+            </Route>
+          </Switch>
         </div>
       </Router>
       <Footer />

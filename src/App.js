@@ -11,15 +11,8 @@ import { Footer } from './components/Footer';
 import LoginPage from './views/LoginPage';
 import { AdminDash } from './views/AdminDash';
 
-const App = () => {
-  const [token, setToken] = useState();
-
-  if (!token) {
-    return <LoginPage setToken={setToken} />
-    // add header and footer
-  }
-
-  return (
+function HomeApp(props) { // returns the user accessible pages
+  return ( // if there is a token, it takes you to any of the pages requested
     <div className="App">
       <Header />
       <Router>
@@ -42,11 +35,9 @@ const App = () => {
           {/* <Route exact path="/login">
             <LoginPage />
           </Route> */}
-          {/* <Switch> */}
-            <Route exact path="/login">
-              <AdminDash />
-            </Route>
-          {/* </Switch> */}
+          <Route exact path="/login"> {/* I dont really know why this has to be '/login' */}
+            <AdminDash />
+          </Route>
         </div>
       </Router>
       <Footer />
@@ -54,4 +45,26 @@ const App = () => {
   );
 }
 
+const App = () => {
+  const [token, setToken] = useState();
+
+  if (!token) { // if there is no token put in, it returns the login page
+    return <LoginPage setToken={setToken} />
+  }
+
+  return <HomeApp /> // returns user accesible pages and admin dashboard
+}
+
 export default App;
+
+// else if (token) {
+//   return (
+//     <div className="App">
+//     <Router>
+//       <Route exact path="/login">
+//         <AdminDash />
+//       </Route>
+//     </Router>
+//     </div>
+//   )
+// }

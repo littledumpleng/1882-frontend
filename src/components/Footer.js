@@ -14,7 +14,7 @@ export const Footer = (props) => {
           />
           <span id="titles">Literature & Art Corner Database</span>
           <a href="/login" className="navbar-item">Admin Login</a>
-          {/* <button href="/login" className="navbar-item">Admin Login</button> */}
+          {/* <button onClick={props.onClick} href="/login" className="navbar-item">Admin Login</button> */}
         </div>
       </div>
     </div>

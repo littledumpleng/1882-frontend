@@ -46,6 +46,12 @@ function HomeApp(props) { // returns the user accessible pages
 }
 
 const App = () => {
+  // by default take us to user accesible pages
+  // if the admin login button is pressed, take to login page:
+  // if token is input, take to admin dash
+  // if token is missing, take to either homepage or error page
+  // else return homeapp
+
   const [token, setToken] = useState();
 
   if (!token) { // if there is no token put in, it returns the login page

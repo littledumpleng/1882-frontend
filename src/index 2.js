@@ -8,7 +8,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') // "find in index.html the element with id root, and at that place render the app component"
 );
 
 // If you want to start measuring performance in your app, pass a function

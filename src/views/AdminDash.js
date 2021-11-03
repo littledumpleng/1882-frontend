@@ -18,7 +18,7 @@ export const AdminDash = (props) => {
                 <div className="column">
                     <div className="box">
                         <SearchBar />
-                        <Tabs>
+                        {/* <Tabs>
                             <div label="Gator">
                                 See ya later, <em>Alligator</em>!
                             </div>
@@ -28,7 +28,7 @@ export const AdminDash = (props) => {
                             <div label="Sarcosuchus">
                                 Nothing to see here, this tab is <em>extinct</em>!
                             </div>
-                        </Tabs>
+                        </Tabs> */}
                         <div className="content">
                             <div className="box">
                                 <div className="content_element">

@@ -1,6 +1,9 @@
-# not our code
+# ignore node_modules folder
 node_modules
 
-# apple code
+# ignore mac system files
 .DS_Store
 src/.DS_Store
+
+# ignore files related to tokens and API keys
+.env

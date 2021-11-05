@@ -5,6 +5,8 @@ import {Homepage} from './views/Homepage';
 import {Contact} from './views/Contact';
 import {Featured} from './views/Featured';
 import {About} from './views/About';
+// import {Login} from './views/LoginPage';
+import Login from './views/LoginPage';
 import {Header} from './components/Header';
 import {Footer} from './components/Footer';
 
@@ -16,7 +18,7 @@ const App = () => {
         <div>
           <Route exact path="/">
             <Redirect to="/home" />
-          </Route>s
+          </Route>
           <Route exact path="/home">
             <Homepage />
           </Route>
@@ -28,6 +30,9 @@ const App = () => {
           </Route>
           <Route exact path="/featured">
             <Featured />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
       </div>
       </Router>

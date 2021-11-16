@@ -6,21 +6,12 @@ import { Themes } from './Themes';
 
 export const FilteringMenu = (props) => {
   return (
-    
-      
         <div className="filter-menu, has-ratio">
           <h2>Filtering Menu</h2>
-
-
           <MediaTypes />
           <Backgrounds />
           <Genres />
           <Themes />
-
-
-
         </div>
-      
-    
   )
 }

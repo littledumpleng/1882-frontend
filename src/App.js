@@ -1,25 +1,22 @@
 import 'bulma/css/bulma.min.css';
 import './App.css';
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
-import { Homepage } from './views/Homepage';
-import { Contact } from './views/Contact';
-import { Featured } from './views/Featured';
-import { About } from './views/About';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
-import LoginPage from './views/LoginPage';
-import { AdminDash } from './views/AdminDash';
+import { BrowserRouter as Router,Route, Switch, Link, Redirect } from 'react-router-dom';
+import {Homepage} from './views/Homepage';
+import {Contact} from './views/Contact';
+import {Featured} from './views/Featured';
+import {About} from './views/About';
+import {Header} from './components/Header';
+import {Footer} from './components/Footer';
 
-function HomeApp(props) { // returns the user accessible pages
-  return ( // if there is a token, it takes you to any of the pages requested
+const App = () => {
+  return (
     <div className="App">
       <Header />
       <Router>
         <div>
           <Route exact path="/">
             <Redirect to="/home" />
-          </Route>
+          </Route>s
           <Route exact path="/home">
             <Homepage />
           </Route>
@@ -32,13 +29,7 @@ function HomeApp(props) { // returns the user accessible pages
           <Route exact path="/featured">
             <Featured />
           </Route>
-          {/* <Route exact path="/login">
-            <LoginPage />
-          </Route> */}
-          <Route exact path="/login"> {/* I dont really know why this has to be '/login' */}
-            <AdminDash />
-          </Route>
-        </div>
+      </div>
       </Router>
       <Footer />
     </div>

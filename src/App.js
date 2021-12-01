@@ -8,6 +8,7 @@ import {About} from './views/About';
 import {Header} from './components/Header';
 import {Footer} from './components/Footer';
 
+
 const App = () => {
   return (
     <div className="App">
@@ -16,7 +17,7 @@ const App = () => {
         <div>
           <Route exact path="/">
             <Redirect to="/home" />
-          </Route>s
+          </Route>
           <Route exact path="/home">
             <Homepage />
           </Route>

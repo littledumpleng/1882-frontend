@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../images/1882logo.png';
+import {Navbar} from './Navbar/index.js';
 
 export const Header = (props) => {
   return (
@@ -20,8 +21,12 @@ export const Header = (props) => {
         </a>
         {/* <a href="https://1882foundation.org" id="goto">Go to Home Site</a> */}
       </div>
+
+      {/* New and improved navbar :D */}
+      <Navbar />
       
-      <nav className="navbar red">
+      
+      {/* <nav className="navbar red">
         <div className="navbar-brand">
           <span className="navbar-burger burger" data-target="navMenu">
             <span></span>
@@ -31,14 +36,13 @@ export const Header = (props) => {
         </div>
         <div id="navMenu" className="navbar-menu">
           <div className="navbar-end">
-            {/* <a href="/home" className="navbar-item">Home</a> */}
             <a href="/about" className="navbar-item">About</a>
             <a href="/suggestion" className="navbar-item">Make a Suggestion</a>
             <a href="/featured" className="navbar-item">Featured Reviews</a>
             <a href="/contact" className="navbar-item">Contact Us</a>
           </div>
         </div>
-      </nav>
+      </nav> */}
     </div>
   )
 }

@@ -16,8 +16,11 @@ export const Header = (props) => {
         <a href="https://1882foundation.org" id="goto">Go to Home Site</a>
       </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <nav className="navbar red">
 =======
+=======
+>>>>>>> parent of d860474a (working without login)
 
       <div class="topnav" id="myTopnav">
   <a href="#home" class="active">Home</a>
@@ -30,6 +33,9 @@ export const Header = (props) => {
 </div>
       
       {/* <nav className="navbar red">
+<<<<<<< HEAD
+>>>>>>> parent of d860474a (working without login)
+=======
 >>>>>>> parent of d860474a (working without login)
         <div className="navbar-brand">
           <span className="navbar-burger burger" data-target="navMenu">
@@ -40,9 +46,15 @@ export const Header = (props) => {
         </div>
         <div id="navMenu" className="navbar-menu">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <div className="navbar-end">
             <a href="/home" className="navbar-item">Home</a>
             <a href="/about" className="navbar-item">About</a>
+=======
+          <div className="navbar-end"> */}
+            {/* <a href="/home" className="navbar-item">Home</a> */}
+            {/* <a href="/about" className="navbar-item">About</a>
+>>>>>>> parent of d860474a (working without login)
 =======
           <div className="navbar-end"> */}
             {/* <a href="/home" className="navbar-item">Home</a> */}

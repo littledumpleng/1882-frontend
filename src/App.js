@@ -37,8 +37,11 @@ const App = () => {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default App;
 =======
+=======
+>>>>>>> parent of d860474a (working without login)
 const App = () => {
   // by default take us to user accesible pages
   // if the admin login button is pressed, take to login page:

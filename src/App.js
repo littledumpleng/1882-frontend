@@ -5,6 +5,7 @@ import {Homepage} from './views/Homepage';
 import {Contact} from './views/Contact';
 import {Featured} from './views/Featured';
 import {About} from './views/About';
+import {Resources} from './views/Resources';
 // import {Login} from './views/LoginPage';
 import Login from './views/LoginPage';
 import {Header} from './components/Header';
@@ -23,6 +24,7 @@ const App = () => {
           <Route exact path="/contact" element={<Contact />}/>
           <Route exact path="/about" element={<About />}/>
           <Route exact path="/featured" element={<Featured />}/>
+          <Route exact path="/resources" element={<Resources />}/>
           <Route exact path="/login" element={<Login />}/>
       </Routes>
       </BrowserRouter>

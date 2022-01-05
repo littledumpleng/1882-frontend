@@ -1,7 +1,35 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import { FilteringMenu } from '../components/FilteringMenu'
 
+const baseURL = "http://localhost:5000";
+
 export const Homepage = (props) => {
+
+  const [gigs, setGigs] = useState([]);
+  const [showDummy, setShowDummy] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const onSearchClick = () => {
+    setShowDummy(false);
+
+    axios.get(baseURL+'/gigs', { params: { searchTerm } })
+    .then((response) => {
+      setGigs(response.data);
+    });
+  }
+
+  // useEffect(() => { // right now, this is just getting every single gig, not searching, when the component mounts
+  //   axios.get(baseURL+'/gigs')
+  //   .then((response) => {
+  //     setGigs(response.data);
+  //   });
+  // }, []);
+
+  console.log("gigs", gigs);
+
+  console.log("searchTerm", searchTerm);
+
   return (
     <div>
       <div className="columns">
@@ -11,12 +39,19 @@ export const Homepage = (props) => {
         <div className="column">
           <div className="box">
             <div className="search-bar">
-              <form id="search-form" action="/api" method="get">
+             <i class="fas fa-search"></i>
                 <label for="search">Search</label>
-                <input type="text" id="search" name="Search" />
-              </form>
+                <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}placeholder="..." />
+                <button onClick={onSearchClick} >Search</button>
+
+
             </div>
+            <div>
+              {gigs.map(gig => <p style={{border: '1px solid grey', padding: "8px", margin: '8px'}}><span style={{color: 'red', fontSize: "50px"}}>{gig.contact_email}</span> - <span style={{color: 'green'}}>{gig.budget}</span></p>)}
+            </div>
+            { showDummy &&
             <div className="content">
+            
               <div className="box">
                 <div className="content_element">
                   <div className="item-wrap">
@@ -88,6 +123,7 @@ export const Homepage = (props) => {
                 </div>
               </div>
             </div>
+}
           </div>
         </div>
       </div>

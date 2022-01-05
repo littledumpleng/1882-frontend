@@ -1,6 +1,6 @@
 import 'bulma/css/bulma.min.css';
 import './App.css';
-import { BrowserRouter as Router,Route, Switch, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router,Route, Switch, Link, Navigate } from 'react-router-dom';
 import {Homepage} from './views/Homepage';
 import {Contact} from './views/Contact';
 import {Featured} from './views/Featured';
@@ -15,7 +15,7 @@ const App = () => {
       <Router>
         <div>
           <Route exact path="/">
-            <Redirect to="/home" />
+            <Navigate to="/home" />
           </Route>s
           <Route exact path="/home">
             <Homepage />

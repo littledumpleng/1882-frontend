@@ -41,7 +41,7 @@ export const Homepage = (props) => {
             <div className="search-bar">
              <i class="fas fa-search"></i>
                 <label for="search">Search</label>
-                <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}placeholder="..." />
+                <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}placeholder="Art category, title, author, etc." />
                 <button onClick={onSearchClick} >Search</button>
 
 

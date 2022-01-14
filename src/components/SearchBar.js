@@ -6,6 +6,7 @@ export const SearchBar = (props) => (
             <span className="visually-hidden"></span>
         </label>
         <input
+            className="input is-primary"
             type="text"
             id="header-search"
             placeholder=""

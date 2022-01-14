@@ -32,6 +32,7 @@ export const Header = (props) => {
             <a href="/about" className="navbar-item">ABOUT</a>
             <a href="/suggestion" className="navbar-item">SUGGESTIONS</a>
             <a href="/featured" className="navbar-item">REVIEWS</a>
+            <a href="/resources" className="navbar-item">RESOURCES</a>
             <a href="/contact" className="navbar-item">CONTACT</a>
             <a href="https://www.facebook.com/1882ProjectFoundation/" className="navbar-item">{facebook}</a>
             <a href="https://www.instagram.com/1882foundation/?hl=en" className="navbar-item">{instagram}</a>

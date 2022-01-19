@@ -55,20 +55,6 @@ export const Resources = (props) => {
                     <h3>{singleResource.name}</h3> 
                     <div>{singleResource.type}</div>
                     <div>{singleResource.description}</div>
-                    
-                    {/* 1. unclickable link */}
-                    {/* <div>{singleResource.link}</div> */}
-
-                    {/* template */}
-                    {/* {links.map(link => (<Link className={link.className} activeClassName={link.activeClassName} to={link.to}>{link.name}</Link> ))} */}
-
-                    {/* following template */}
-                    {/* <Link className= {singleResource.className} to={singleResource.to}>{singleResource.name}</Link> */}
-                    
-                    {/* 2. mapped, clickable link doesn't work */}
-                    {/* <a href className= {singleResource.className} to={singleResource.to}>{singleResource.name}</a> */}
-
-                    {/* 3. another clickable link, doesn't work */}
                     <div>
                         <a href = {singleResource.link}>Click here to learn more!</a>
                     </div>

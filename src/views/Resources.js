@@ -7,7 +7,7 @@ export const Resources = (props) => {
             type: 'Festivals',
             name: 'EventBrite Festivals',
             link: 'https://www.eventbrite.com/d/online/free--events--this-month/asian-festival',
-            description: 'search for Asian media festivals and related events near you'
+            description: 'search for Asian media festivals and related events near you' // more descriptive
         },
         {
             id: 2,
@@ -51,10 +51,27 @@ export const Resources = (props) => {
             <h1>Other Resources</h1>
 
             {RES_LIST.map(singleResource => (
-                <li key={singleResource.id} className ="content_element">
-                    <div>{singleResource.name}</div>
+                <li key={singleResource.id} className ="content_element resource">
+                    <h3>{singleResource.name}</h3> 
                     <div>{singleResource.type}</div>
-                    <div>{singleResource.link}</div>
+                    <div>{singleResource.description}</div>
+                    
+                    {/* 1. unclickable link */}
+                    {/* <div>{singleResource.link}</div> */}
+
+                    {/* template */}
+                    {/* {links.map(link => (<Link className={link.className} activeClassName={link.activeClassName} to={link.to}>{link.name}</Link> ))} */}
+
+                    {/* following template */}
+                    {/* <Link className= {singleResource.className} to={singleResource.to}>{singleResource.name}</Link> */}
+                    
+                    {/* 2. mapped, clickable link doesn't work */}
+                    {/* <a href className= {singleResource.className} to={singleResource.to}>{singleResource.name}</a> */}
+
+                    {/* 3. another clickable link, doesn't work */}
+                    <div>
+                        <a href = {singleResource.link}>Click here to learn more!</a>
+                    </div>
                 </li>
             ))}
         </div>

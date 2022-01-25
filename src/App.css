@@ -123,6 +123,10 @@ p {
   outline-style: double; /*?*/
 }
 
+.has-ratio h2{
+  font-family: 'Montserrat', sans-serif;
+}
+
 .content_element {
   padding: 5%;
   outline-style: solid;
@@ -179,11 +183,96 @@ form {
 
 .navbar {
   background: rgb(218, 44, 44);
+  /* background: #fff */
+  /* background: #ED213A;  
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  
+  background: linear-gradient(to right, #93291E, #ED213A);  */
+  
+
+}
+
+.navbar-second{
+  /* background: #ED213A;  
+  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  
+  background: linear-gradient(to right, #93291E, #ED213A);  */
+
 }
 
 .navbar-item {
-  color: rgb(255, 255, 255);
+  color: #fff;
   background: rgb(218, 44, 44);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+/* .navbar-item:hover{
+  
+} */
+
+.main-btn{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  background: #4a4a4a;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-width: 3.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.35s;
+  outline: none;
+}
+
+.main-btn:hover{
+  content:'';
+  background: rgb(218, 44, 44);
+  transition: all 0.35s;
+  border-radius: 4px;
+}
+
+.main-btn:hover:after{
+    width: 100%;
+}
+
+.main-btn:after{
+  position: absolute;
+  content:'';
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgb(218, 44, 44);
+  transition: all 0.30s;
+  border-radius: 4px;
+}
+
+.main-btn a{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-decoration: none;
+}
+
+.filter-but{
+  width: 200px;
+  /* display: flex; */
+  /* text-align: center; */
+}
+
+/* .filter-but span{
+ 
+  
+
+} */
+
+.filter-div{
+  
+  display:flex;
+  justify-content: center;
+  
 }
 
 .footer {
@@ -208,6 +297,7 @@ form {
     padding: 12px;
     flex-direction: column;
   }
+  
 
   /* makes #goto disappear */
   #goto {

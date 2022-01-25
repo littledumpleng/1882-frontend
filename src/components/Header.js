@@ -28,17 +28,17 @@ export const Header = (props) => {
         </div>
         <div id="navMenu" className="navbar-menu">
           <div className="navbar-end">
-            <a href="/home" className="navbar-item">HOME</a>
-            <a href="/about" className="navbar-item">ABOUT</a>
-            <a href="/suggestion" className="navbar-item">SUGGESTIONS</a>
-            <a href="/featured" className="navbar-item">REVIEWS</a>
-            <a href="/resources" className="navbar-item">RESOURCES</a>
-            <a href="/contact" className="navbar-item">CONTACT</a>
+            <a href="/home" className="navbar-item">Home</a>
+            <a href="/about" className="navbar-item">About</a>
+            <a href="/suggestion" className="navbar-item">Suggestions</a>
+            <a href="/featured" className="navbar-item">Reviews</a>
+            <a href="/resources" className="navbar-item">Resources</a>
+            <a href="/contact" className="navbar-item">Contact</a>
             <a href="https://www.facebook.com/1882ProjectFoundation/" className="navbar-item">{facebook}</a>
             <a href="https://www.instagram.com/1882foundation/?hl=en" className="navbar-item">{instagram}</a>
             <a href="https://www.youtube.com/channel/UC00NyHsuZW5OpklnE-mLwRw" className="navbar-item">{youtube}</a>
             <a href="https://1882foundation.org" className='navbar-item'>
-            <button className=" main-btn"><a>MAIN SITE</a></button>
+            <button className=" main-btn"><a>Main Site</a></button>
             </a>
           </div>
         </div>

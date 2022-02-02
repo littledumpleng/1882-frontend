@@ -279,6 +279,27 @@ form {
   background: rgb(218, 44, 44);
 }
 
+.all-resources {
+  list-style-type: none;
+}
+
+.resource-images { 
+  display: block;
+  margin-left: auto;
+  padding: 24px;
+  height: 300px;
+  width: auto; /* width proportional to height */
+  overflow: hidden; /* cropping */
+}
+
+.resources-text {
+  display: block;
+  margin-right: auto;
+  padding: 24px;
+  width: 75%;
+
+}
+
 /* .content_element {
     padding: 5%;
     outline-style: solid;

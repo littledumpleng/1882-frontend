@@ -1,49 +1,44 @@
 import React from 'react';
+import noc from '../images/noc.jpeg';
+import event from '../images/event.png';
+import mochi from '../images/mochi.png';
+import kent from '../images/kent.jpeg';
+
 
 export const Resources = (props) => {
     const RES_LIST = [
         {
             id: 1,
             type: 'Festivals',
+            image: <img src={event} alt="Eventbrite logo"/>,
             name: 'EventBrite Festivals',
-            link: 'https://www.eventbrite.com/d/online/free--events--this-month/asian-festival',
-            description: 'search for Asian media festivals and related events near you'
+            link: <a href='https://www.eventbrite.com/d/online/free--events--this-month/asian-festival'>Click here for more information!</a>,
+            description: 'Search for Asian media festivals and related events located near you!'
+        },
+        {
+            id: 2,
+            type: 'Blog',
+            name: 'Kent Tong\'s Blog', 
+            image: <img src={kent} alt="Kent Tong"/>,
+            link: <a href='https://kdtong.medium.com'>Click here for more information!</a>,
+            description: 'Timely commentary and meaningful reviews of books, movies, media presentations, and other performing arts related to the issues, lives, history, and heritage of the  AAPI community. All written by the Literature & Art Corner Library\'s media curator.'
         },
         {
             id: 2,
             type: 'Organization',
+            image: <img src={noc} alt="Nerds of Color logo"/>,
             name: 'The Nerds of Color', 
-            link: 'https://thenerdsofcolor.org',
-            description: 'looks at nerd/geek fandom with a culturally critical eye'
-        },
-        {
-            id: 3,
-            type: 'Blog',
-            name: 'Angry Asian Man', 
-            link: 'http://blog.angryasianman.com',
-            description: 'blog, podcasts, etc.'
+            link: <a href='https://thenerdsofcolor.org'>Click here for more information!</a>,
+            description: 'A place to discuss, comment on, and geek out about stuff in the world of fandom (i.e., comics, movies, gaming, animation, toys, etc.) through the culturally critical eye of a POC.'
         },
         {
             id: 4,
+            type: 'Publication',
+            image: <img src={mochi} alt="Mochi Magazine logo"/>,
             name: 'Mochi Magazine', 
-            type: 'Publication',
-            link: 'https://www.mochimag.com/#',
-            description: 'the longest-running digital publication for Asian American women'
+            link: <a href='https://www.mochimag.com/#'>Click here for more information!</a>,
+            description: 'The longest-running digital publication for Asian American women'
         },
-        {
-            id: 5,
-            name: 'The Conversation',
-            type: 'Publication',
-            link: 'https://theconversation.com/us/topics/asian-americans-16018',
-            description: ''
-        },
-        {
-            id: 6,
-            name: '',
-            type: '',
-            link: '',
-            description: ''
-        }
     ]
 
     return (
@@ -52,8 +47,10 @@ export const Resources = (props) => {
 
             {RES_LIST.map(singleResource => (
                 <li key={singleResource.id} className ="content_element">
-                    <div>{singleResource.name}</div>
-                    <div>{singleResource.type}</div>
+                    <h3>{singleResource.name}</h3>
+                    <br/>
+                    <div>{singleResource.image}</div>
+                    <div>{singleResource.description}</div>
                     <div>{singleResource.link}</div>
                 </li>
             ))}

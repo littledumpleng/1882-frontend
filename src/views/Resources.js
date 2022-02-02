@@ -1,11 +1,16 @@
 import React from 'react';
 import noc from '../images/noc.jpeg';
+import event from '../images/event.png';
+import mochi from '../images/mochi.png';
+import kent from '../images/kent.jpeg';
+
 
 export const Resources = (props) => {
     const RES_LIST = [
         {
             id: 1,
             type: 'Festivals',
+            image: <img src={event} alt="Eventbrite logo"/>,
             name: 'EventBrite Festivals',
             link: <a href='https://www.eventbrite.com/d/online/free--events--this-month/asian-festival'>Click here for more information!</a>,
             description: 'Search for Asian media festivals and related events located near you!'
@@ -14,6 +19,7 @@ export const Resources = (props) => {
             id: 2,
             type: 'Blog',
             name: 'Kent Tong\'s Blog', 
+            image: <img src={kent} alt="Kent Tong"/>,
             link: <a href='https://kdtong.medium.com'>Click here for more information!</a>,
             description: 'Timely commentary and meaningful reviews of books, movies, media presentations, and other performing arts related to the issues, lives, history, and heritage of the  AAPI community. All written by the Literature & Art Corner Library\'s media curator.'
         },
@@ -27,8 +33,9 @@ export const Resources = (props) => {
         },
         {
             id: 4,
-            name: 'Mochi Magazine', 
             type: 'Publication',
+            image: <img src={mochi} alt="Mochi Magazine logo"/>,
+            name: 'Mochi Magazine', 
             link: <a href='https://www.mochimag.com/#'>Click here for more information!</a>,
             description: 'The longest-running digital publication for Asian American women'
         },

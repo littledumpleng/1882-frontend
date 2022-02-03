@@ -30,7 +30,7 @@ export const Header = (props) => {
           <div className="navbar-end">
             <a href="/home" className="navbar-item">Home</a>
             <a href="/about" className="navbar-item">About</a>
-            <a href="/suggestion" className="navbar-item">Suggestions</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKuRaUKoiOsC6WqKelE7ayX1eRFjXq3xioSPq60jdxPhmmFA/viewform" className="navbar-item">Suggestions</a>
             <a href="/featured" className="navbar-item">Reviews</a>
             <a href="/resources" className="navbar-item">Resources</a>
             <a href="/contact" className="navbar-item">Contact</a>

@@ -300,6 +300,11 @@ form {
 
 }
 
+.all-reviews {
+  list-style-type: none;
+  text-align: center;
+}
+
 /* .content_element {
     padding: 5%;
     outline-style: solid;

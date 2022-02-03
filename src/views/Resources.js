@@ -9,7 +9,7 @@ export const Resources = (props) => {
     const RES_LIST = [
         {
             id: 1,
-            type: 'Festivals',
+            type: 'Festival',
             image: <img src={event} div className='resource-images' alt="Eventbrite logo"/>,
             name: 'EventBrite Festivals',
             link: <a href='https://www.eventbrite.com/d/online/free--events--this-month/asian-festival'>Click here for more information!</a>,

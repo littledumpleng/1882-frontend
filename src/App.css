@@ -279,6 +279,11 @@ form {
   background: rgb(218, 44, 44);
 }
 
+.all-reviews {
+  list-style-type: none;
+  text-align: center;
+}
+
 .all-resources {
   list-style-type: none;
 }

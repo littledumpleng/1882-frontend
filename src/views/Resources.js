@@ -48,10 +48,13 @@ export const Resources = (props) => {
                     <li key={singleResource.id} className ="content_element">
                         <h3>{singleResource.name}</h3>
                         <br/>
-                        <div>{singleResource.image}</div>
-                        <div className="resources-text">
-                            <div>{singleResource.description}</div>
-                            <div>{singleResource.link}</div>
+                        <div className="img-align">
+                            <div>{singleResource.image}</div>
+                            <div className="resources-text">
+                                <div>{singleResource.description}</div>
+                                <br/>
+                                <div>{singleResource.link}</div>
+                            </div>
                         </div>
                     </li>
                 ))}

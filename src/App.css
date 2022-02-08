@@ -1,17 +1,22 @@
+/* changes the font of everything */
 * {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+/* changes the size and alignment of 
+"filtering menu" does not make it bold */
 h2 {
   font-size: 18px;
   text-decoration: bold;
   text-align: center;
 }
 
+/* doesn't do anything */
 p {
-  text-decoration: none; /*?*/
+  text-decoration: none;
 }
 
+/* changes "literature & art corner database */
 #title {
   /* LITERATURE & ART CORNER DATABASE */
   font-size: 36px;
@@ -26,6 +31,7 @@ p {
   text-transform: uppercase;
 }
 
+/* doesn't change anything bc element was removed */
 #goto {
   /* Go to home site */
   font-size: 18px;
@@ -39,14 +45,15 @@ p {
   margin: 3px;
 }
 
+/* changes the 1882 logo */
 .inner-banner img {
   display: block;
-  align-items: center;
   padding: 20px;
   border: 2px;
   margin: 3px;
 }
 
+/* doesn't change anything */
 .menu {
   display: flex;
   justify-content: center;
@@ -57,6 +64,7 @@ p {
   margin: auto;
 }
 
+/* affects the literature & art corner title */
 .inner-banner {
   display: flex;
   flex-wrap: wrap;
@@ -66,6 +74,7 @@ p {
   height: 100%;
 }
 
+/* doesn't change anything */
 .inner-menu {
   display: flex;
   justify-content: space-around; /*space on left and right*/
@@ -75,6 +84,7 @@ p {
   text-decoration: none;
 }
 
+/* doesn't change anything */
 .inner-menu > a {
   color: rgba(255, 255, 255, 0.911);
   letter-spacing: 1.5px;
@@ -82,51 +92,47 @@ p {
   border: 10px;
 }
 
-.main-container {
-  margin-top: 60px;
-  padding: 25px;
-}
-
-.main-container .content {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
+/* doesn't change anything */
 .main-container .content .item-wrap {
   width: 50%;
   padding: 10px;
 }
 
+/* doesn't change anything */
 .main-container .content .item-wrap .item {
   padding: 25px;
   background: #fff;
   line-height: 22px;
 }
 
+/* doesn't change anything */
 .search-tools {
   display: flex;
 }
 
+/* formats the search bar, changes position of search bar */
 .search-bar {
   margin: auto;
   width: 41%;
   padding: 10px;
 }
 
+/* doesn't change anything - probs cuz filtering menu is bootstrap or bulma? */
 .filter-menu {
   font-size: 18px;
   outline-style: double;
   padding: 10px;
   border: 2px;
   margin: 5px;
-  outline-style: double; /*?*/
+  outline-style: double;
 }
 
+/* changes font of the filtering menu */
 .has-ratio h2{
   font-family: 'Montserrat', sans-serif;
 }
 
+/* changes font of the filtering menu */
 .content_element {
   padding: 5%;
   outline-style: solid;
@@ -138,17 +144,21 @@ p {
   margin-right: 20px;
 }
 
+/* changes box title text such as about the database 
+on about and event brite festivals on resources */
 h3 {
   text-align: center;
   font-size: 20px;
 }
 
+/* changes the title of each page such as about, reviews */
 h1 {
   text-align: center;
   font-size: 30px;
   margin-top: 15px;
 }
 
+/* doesn't change anything bc element was removed */
 .suggestion-form {
   padding: 5%;
   outline-style: solid;
@@ -161,6 +171,7 @@ h1 {
   text-align: center;
 }
 
+/* doesn't change anything */
 form {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -168,12 +179,14 @@ form {
   margin-right: 20px;
 }
 
+/* doesn't change anything bc element was removed */
 .submit-button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* changes padding of containers on about page only */
 .contents {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -181,6 +194,7 @@ form {
   margin-right: 20px;
 }
 
+/* changes left side of navbar's color, randomly not the buttons */
 .navbar {
   background: rgb(218, 44, 44);
   /* background: #fff */
@@ -191,6 +205,7 @@ form {
 
 }
 
+/* doesn't change anything bc commented out */
 .navbar-second{
   /* background: #ED213A;  
   background: -webkit-linear-gradient(to right, #93291E, #ED213A);  
@@ -198,6 +213,7 @@ form {
 
 }
 
+/* changes navbar button font color and background color and format */
 .navbar-item {
   color: #fff;
   background: rgb(218, 44, 44);
@@ -205,10 +221,12 @@ form {
   font-size: 16px;
 }
 
+/* doesn't change anything bc commented out */
 /* .navbar-item:hover{
   
 } */
 
+/* changes navbar main site button formatting */
 .main-btn{
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -224,6 +242,8 @@ form {
   outline: none;
 }
 
+/* changes the slight background color 
+of button on the hover button on navbar */
 .main-btn:hover{
   content:'';
   background: rgb(218, 44, 44);
@@ -231,10 +251,14 @@ form {
   border-radius: 4px;
 }
 
+/* makes the hover button on navbar highlight 
+from left to right */
 .main-btn:hover:after{
     width: 100%;
 }
 
+/* also affect the animation of the hover button
+on the navbar */
 .main-btn:after{
   position: absolute;
   content:'';
@@ -247,6 +271,7 @@ form {
   border-radius: 4px;
 }
 
+/* changes color of hover button on navbar */
 .main-btn a{
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -256,18 +281,21 @@ form {
   text-decoration: none;
 }
 
+/* changes size of filter menu boxes */
 .filter-but{
   width: 200px;
   /* display: flex; */
   /* text-align: center; */
 }
 
+/* doesn't change anything bc commented out */
 /* .filter-but span{
  
   
 
 } */
 
+/* centers filter menu boxes within their containers */
 .filter-div{
   
   display:flex;
@@ -275,16 +303,26 @@ form {
   
 }
 
+/* changes the color of the footer */
 .footer {
   background: rgb(218, 44, 44);
 }
 
+/* removes the smol bullet on the resources page boxes */
 .all-resources {
   list-style-type: none;
 }
 
+/* makes all the images on the resource page the same size
+and right aligned */
+.img-align {
+  display: flex;
+  flex-flow: row wrap;
+  margin-inline-start: 150px;
+  margin-inline-end: 150px;
+}
+
 .resource-images { 
-  display: block;
   margin-left: auto;
   padding: 24px;
   height: 300px;
@@ -292,8 +330,8 @@ form {
   overflow: hidden; /* cropping */
 }
 
+/*  */
 .resources-text {
-  display: block;
   margin-right: auto;
   padding: 24px;
   width: 75%;

@@ -315,8 +315,14 @@ on the navbar */
 
 /* makes all the images on the resource page the same size
 and right aligned */
+.img-align {
+  display: flex;
+  flex-flow: row wrap;
+  margin-inline-start: 150px;
+  margin-inline-end: 150px;
+}
+
 .resource-images { 
-  display: block;
   margin-left: auto;
   padding: 24px;
   height: 300px;
@@ -326,7 +332,6 @@ and right aligned */
 
 /*  */
 .resources-text {
-  display: block;
   margin-right: auto;
   padding: 24px;
   width: 75%;

@@ -11,11 +11,6 @@ h2 {
   text-align: center;
 }
 
-/* doesn't do anything */
-p {
-  text-decoration: none;
-}
-
 /* changes "literature & art corner database */
 #title {
   /* LITERATURE & ART CORNER DATABASE */
@@ -31,37 +26,12 @@ p {
   text-transform: uppercase;
 }
 
-/* doesn't change anything bc element was removed */
-#goto {
-  /* Go to home site */
-  font-size: 18px;
-  line-height: 38px;
-  display: 0 1 auto;
-  align-items: center;
-  color: black;
-  text-decoration: underline;
-  padding: 20px;
-  border: 2px;
-  margin: 3px;
-}
-
 /* changes the 1882 logo */
 .inner-banner img {
   display: block;
   padding: 20px;
   border: 2px;
   margin: 3px;
-}
-
-/* doesn't change anything */
-.menu {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 60px;
-  background: rgb(199, 48, 56);
-  padding: 0 25px; /*?*/
-  margin: auto;
 }
 
 /* affects the literature & art corner title */
@@ -74,57 +44,11 @@ p {
   height: 100%;
 }
 
-/* doesn't change anything */
-.inner-menu {
-  display: flex;
-  justify-content: space-around; /*space on left and right*/
-  width: 720px; /*customize for desktop and mobile*/
-  align-items: center;
-  flex-wrap: wrap;
-  text-decoration: none;
-}
-
-/* doesn't change anything */
-.inner-menu > a {
-  color: rgba(255, 255, 255, 0.911);
-  letter-spacing: 1.5px;
-  padding: 10px;
-  border: 10px;
-}
-
-/* doesn't change anything */
-.main-container .content .item-wrap {
-  width: 50%;
-  padding: 10px;
-}
-
-/* doesn't change anything */
-.main-container .content .item-wrap .item {
-  padding: 25px;
-  background: #fff;
-  line-height: 22px;
-}
-
-/* doesn't change anything */
-.search-tools {
-  display: flex;
-}
-
 /* formats the search bar, changes position of search bar */
 .search-bar {
   margin: auto;
   width: 41%;
   padding: 10px;
-}
-
-/* doesn't change anything - probs cuz filtering menu is bootstrap or bulma? */
-.filter-menu {
-  font-size: 18px;
-  outline-style: double;
-  padding: 10px;
-  border: 2px;
-  margin: 5px;
-  outline-style: double;
 }
 
 /* changes font of the filtering menu */
@@ -158,34 +82,6 @@ h1 {
   margin-top: 15px;
 }
 
-/* doesn't change anything bc element was removed */
-.suggestion-form {
-  padding: 5%;
-  outline-style: solid;
-  outline-color: rgb(0, 0, 0);
-  outline-width: thin;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  text-align: center;
-}
-
-/* doesn't change anything */
-form {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-/* doesn't change anything bc element was removed */
-.submit-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 /* changes padding of containers on about page only */
 .contents {
   margin-top: 20px;
@@ -205,14 +101,6 @@ form {
 
 }
 
-/* doesn't change anything bc commented out */
-.navbar-second{
-  /* background: #ED213A;  
-  background: -webkit-linear-gradient(to right, #93291E, #ED213A);  
-  background: linear-gradient(to right, #93291E, #ED213A);  */
-
-}
-
 /* changes navbar button font color and background color and format */
 .navbar-item {
   color: #fff;
@@ -220,11 +108,6 @@ form {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
-
-/* doesn't change anything bc commented out */
-/* .navbar-item:hover{
-  
-} */
 
 /* changes navbar main site button formatting */
 .main-btn{
@@ -288,13 +171,6 @@ on the navbar */
   /* text-align: center; */
 }
 
-/* doesn't change anything bc commented out */
-/* .filter-but span{
- 
-  
-
-} */
-
 /* centers filter menu boxes within their containers */
 .filter-div{
   
@@ -343,17 +219,6 @@ and right aligned */
   text-align: center;
 }
 
-/* .content_element {
-    padding: 5%;
-    outline-style: solid;
-    outline-color: rgb(0, 0, 0);
-    outline-width: thin;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-} */
-
 /* when max-width is 992px or less */
 @media (max-width: 992px) {
   .banner .inner-banner .menu .inner-menu {
@@ -376,55 +241,3 @@ and right aligned */
     margin-top: 100px;
   }
 }
-
-/* when max-width is 728px or less */
-
-/* @media (max-width: 728px){
-    .banner{
-        height: 60px;
-    }
-    .banner .inner-banner{
-        flex-direction: row;
-    }
-    .main-container{
-        margin-top: 60px;
-    }
-    .header .inner-menu ul{
-        position: absolute;
-        top: 60px;
-        left: 0;
-        display: block;
-        background: rgb(136, 5, 12);
-        width: 100%;
-    }
-    .menu .inner-menu ul li{
-        padding: 10px;
-    }
-    .menu .inner-menu ul li a{
-        width: 100%;
-        padding: 12px;
-    }
-    .banner .toggle{
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 25px;
-        color: #fff;
-        font-size: 24px;
-        cursor: pointer;
-        transition: all 0.25s ease;
-    }
-    .banner .toggle:hover{
-        color: rgb(121, 120, 119);
-    }
-    .banner .inner-menu { 
-        display: none;
-    }
-
-    .banner .inner-menu.active{
-        display: block;
-    }
-    .main-container .content .item-wrap{
-        width: 100%;
-    }
-} */

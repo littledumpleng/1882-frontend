@@ -37,6 +37,7 @@ export const Resources = (props) => {
             type: 'Festival',
             image: <img src={aaiff} div className='resource-images' alt="Asian American International Film Festival logo"/>,
             name: 'Asian American International Film Festival', 
+            link: <a href='https://www.aaiff.org/'>Click here for more information!</a>,
             description: 'The United States\'s first and longest running festival of its kind. AAIFF uses media as a tool for social change and supports diversity and inclusion in the media arts.'
         },
         {

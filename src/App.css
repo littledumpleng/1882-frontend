@@ -194,8 +194,8 @@ and right aligned */
 .img-align {
   display: flex;
   flex-flow: row wrap;
-  margin-inline-start: 150px;
-  margin-inline-end: 150px;
+  margin-inline-start: 100px;
+  margin-inline-end: 100px;
 }
 
 .resource-images { 

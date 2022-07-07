@@ -7,8 +7,8 @@ export const Header = (props) => {
   const facebook = <FontAwesomeIcon icon={faFacebookF} size="lg" />
   const instagram = <FontAwesomeIcon icon={faInstagram} size="lg" />
   const youtube = <FontAwesomeIcon icon={faYoutube} size="lg" />
-    return (
-        <div className="banner">
+  return (
+    <div className="banner">
       <div className="inner-banner">
         <img
           src={logo}
@@ -28,7 +28,7 @@ export const Header = (props) => {
         </div>
         <div id="navMenu" className="navbar-menu">
           <div className="navbar-end">
-            <a href="/home" className="navbar-item">Home</a>
+            <a href="/" className="navbar-item">Home</a>
             <a href="/about" className="navbar-item">About</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKuRaUKoiOsC6WqKelE7ayX1eRFjXq3xioSPq60jdxPhmmFA/viewform" className="navbar-item">Suggestions</a>
             <a href="/featured" className="navbar-item">Reviews</a>
@@ -38,12 +38,11 @@ export const Header = (props) => {
             <a href="https://www.instagram.com/1882foundation/?hl=en" className="navbar-item">{instagram}</a>
             <a href="https://www.youtube.com/channel/UC00NyHsuZW5OpklnE-mLwRw" className="navbar-item">{youtube}</a>
             <a href="https://1882foundation.org" className='navbar-item'>
-            <button className=" main-btn"><a>Main Site</a></button>
+              <button className="main-btn">Main Site</button>
             </a>
           </div>
         </div>
       </nav>
-      {/* <div className="navbar-second">.hvjvj</div> */}
     </div>
-    )
+  )
 }

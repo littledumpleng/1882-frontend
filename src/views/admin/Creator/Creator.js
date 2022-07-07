@@ -7,6 +7,8 @@ import { UpdateCreator } from './UpdateCreator';
 
 export const Creator = () => {
 
+  // set function where if sessionStorage is not set, then return user to home
+
   const [changeOccured, setChangeOccured] = useState(false);
   const [creators, setCreators] = useState([]);
 
@@ -28,6 +30,9 @@ export const Creator = () => {
       <h1>Creators (Admin)</h1>
       <div className="contents">
         <div className="content_element">
+          <a href='/admin'>Back</a>
+        </div>
+        <div className="content_element">
           <ListCreators
             creators={creators}
             setChangeOccured={setChangeOccured}
@@ -45,6 +50,6 @@ export const Creator = () => {
           />
         </div>
       </div>
-    </div>
+    </div >
   )
 }

@@ -11,7 +11,7 @@ export const AddCreator = ({ setChangeOccured }) => {
   const onCreateClick = () => {
     setResponseMessage('...Processing');
 
-    //TODO: make `firstName` and `lastName` required
+    //TODO: make `firstName` and `lastName` required and if they are not set, then disable the create button
     post(
       `${BASE_API_URL}/creator`,
       {

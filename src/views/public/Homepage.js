@@ -13,10 +13,10 @@ export const Homepage = (props) => {
   const onSearchClick = () => {
     setShowDummy(false);
 
-    axios.get(baseURL + '/gigs', { params: { searchTerm } })
-      .then((response) => {
-        setGigs(response.data);
-      });
+    // axios.get(baseURL + '/gigs', { params: { searchTerm } })
+    //   .then((response) => {
+    //     setGigs(response.data);
+    //   });
   }
 
   return (
@@ -28,8 +28,8 @@ export const Homepage = (props) => {
         <div className="column">
           <div className="box">
             <div className="search-bar">
-              <i class="fas fa-search"></i>
-              <label for="search">Search</label>
+              <i className="fas fa-search"></i>
+              <span>Search</span>
               <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="Art category, title, author, etc." />
               <button onClick={onSearchClick} >Search</button>
             </div>

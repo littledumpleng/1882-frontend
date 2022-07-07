@@ -1,29 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { get } from 'axios';
-import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
+import React from 'react';
 
-export const ListCreators = ({ changeOccured }) => {
+const getCreatorText = ({ id, firstName, lastName }) => `${firstName} ${lastName} (id: ${id})`;
 
-  const [creators, setCreators] = useState([]);
+export const ListCreators = ({ creators, setChangeOccured }) => {
 
-  useEffect(() => {
-    get(
-      `${BASE_API_URL}/creator`,
-      DEFAULT_AXIOS_OPTIONS
-    )
-      .then((res) => {
-        setCreators(res.data);
-      })
-      .catch((error) => {
-        console.log("error", error)
-      });
-  }, [changeOccured]);
+  const onDeleteClick = (creator) => () => {
+    //TODO: make this an option pop-up
+    alert(`Are you sure that you want to delete ${getCreatorText(creator)}`);
+    setChangeOccured(true);
+  }
 
   return (
     <>
       <h3>Existing Creators</h3>
       <div>
-        {creators.map(creator => <p key={creator.id}>{`${creator.firstName} ${creator.lastName} (id: ${creator.id})`}</p>)}
+        {creators.map(creator => <p key={creator.id}>{getCreatorText(creator)} <button onClick={onDeleteClick(creator)}>Delete</button></p>)}
       </div>
     </>
   )

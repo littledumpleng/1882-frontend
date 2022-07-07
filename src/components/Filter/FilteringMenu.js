@@ -1,8 +1,8 @@
 import React from 'react';
-import { Backgrounds } from './Backgrounds';
-import { MediaTypes } from './MediaTypes';
-import { Genres } from './Genres';
-import { Themes } from './Themes';
+import { Backgrounds } from '../Backgrounds';
+import { MediaTypes } from '../MediaTypes';
+import { Genres } from '../Genres';
+import { Themes } from '../Themes';
 
 export const FilteringMenu = (props) => {
   return (

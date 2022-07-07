@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { FilteringMenu } from '../../components/FilteringMenu'
+import { FilteringMenu } from '../../components/Filter/FilteringMenu';
 
-const baseURL = "http://localhost:5000";
+export const Homepage = () => {
 
-export const Homepage = (props) => {
-
-  const [gigs, setGigs] = useState([]);
-  const [showDummy, setShowDummy] = useState(true);
+  const [showDummy] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const onSearchClick = () => {
-    setShowDummy(false);
+  //TODO: make all the filters select inputs
+  const [backgroundFilter, setBackgroundFilter] = useState(null);
+  const [mediaTypeFilter, setMediaTypeFilter] = useState(null);
+  const [genreFilter, setGenreFilter] = useState(null);
+  const [themeFilter, setThemeFilter] = useState(null);
 
-    // axios.get(baseURL + '/gigs', { params: { searchTerm } })
-    //   .then((response) => {
-    //     setGigs(response.data);
-    //   });
+  //TODO: implement search
+  const onSearchClick = () => {
   }
+
+  //TODO: add in useEffects to get the existing filter options for each category from the db
 
   return (
     <div>
@@ -32,9 +32,6 @@ export const Homepage = (props) => {
               <span>Search</span>
               <input type="text" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="Art category, title, author, etc." />
               <button onClick={onSearchClick} >Search</button>
-            </div>
-            <div>
-              {gigs.map(gig => <p style={{ border: '1px solid grey', padding: "8px", margin: '8px' }}><span style={{ color: 'red', fontSize: "50px" }}>{gig.contact_email}</span> - <span style={{ color: 'green' }}>{gig.budget}</span></p>)}
             </div>
             {showDummy &&
               <div className="content">

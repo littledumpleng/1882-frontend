@@ -1,61 +1,50 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 
-async function loginUser(credentials) {
-    return fetch('http://localhost:8080/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => data.json())
+const loginUser = async (credentials) => {
+  return fetch('http://localhost:8080/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+    .then(data => data.json())
 }
 
 //export const LoginPage = (props) => { // diff from tut.
-    export default function Login({ setToken }) {
-        const [username, setUserName] = useState();
-        const [password, setPassword] = useState();
+export default function Login({ setToken }) {
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
 
-        const handleSubmit = async e => {
-            e.preventDefault();
-            const token = await loginUser({
-                username,
-                password
-            });
-            setToken(token);
-        }
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const token = await loginUser({
+      username,
+      password
+    });
+    setToken(token);
+  }
 
-
-        return (
-            <div className="login-wrapper">
-                <h1>Login to your administrative account</h1>
-
-
-                <div className="content_element">
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            <p>Username</p>
-                            <input type="text" onChange={e => setUserName(e.target.value)}/>
-                        </label>
-                        <label>
-                            <p>Password</p>
-                            <input type="password" onChange={e => setPassword(e.target.value)}/>
-                        </label>
-                        <div>
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
+  return (
+    <div className="login-wrapper">
+      <h1>Login to your administrative account</h1>
 
 
-            </div>
-
-
-
-        )
-    }
-    Login.propTypes = {
-        setToken: PropTypes.func.isRequired
-    };
-    //export default LoginPage;
+      <div className="content_element">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <p>Username</p>
+            <input type="text" onChange={e => setUserName(e.target.value)} />
+          </label>
+          <label>
+            <p>Password</p>
+            <input type="password" onChange={e => setPassword(e.target.value)} />
+          </label>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}

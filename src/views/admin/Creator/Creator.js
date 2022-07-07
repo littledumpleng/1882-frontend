@@ -1,15 +1,13 @@
 import React from 'react';
+import { AddCreator } from './AddCreator';
 
-export const Creator = (props) => {
+export const Creator = () => {
   return (
     <div>
-      <h1>About</h1>
-
+      <h1>Creators (Admin)</h1>
       <div className="contents">
         <div className="content_element">
-          <h3>About the Database</h3>
-          <br />
-          <p>The Literature & Art Corner Database compiles recommendations for books, audiobooks, poetry, films, documentaries, podcasts, music, and articles related to the Asian American experience. Asian Americans lack representation within mainstream American media, and they have often endured misleading portrayals of their culture, food, customs, and experiences. This interactive and curated collection of works promotes cross-cultural appreciation by sharing content that addresses these inaccuracies. Visitors are welcome to submit their database suggestions and read featured reviews by local critics. This database app is an effort to preserve Asian American stories and creations.</p>
+          <AddCreator />
         </div>
         <div className="content_element">
           <h3>About the Creators</h3>

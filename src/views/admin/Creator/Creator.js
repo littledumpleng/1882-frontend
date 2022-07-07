@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AddCreator } from './AddCreator';
+import { ListCreators } from './ListCreators';
 
 export const Creator = () => {
+  const [changeOccured, setChangeOccured] = useState(false);
   return (
     <div>
       <h1>Creators (Admin)</h1>
       <div className="contents">
         <div className="content_element">
-          <AddCreator />
+          <ListCreators
+            changeOccured={changeOccured}
+          />
+        </div>
+        <div className="content_element">
+          <AddCreator
+            setChangeOccured={setChangeOccured}
+          />
         </div>
         <div className="content_element">
           <h3>About the Creators</h3>

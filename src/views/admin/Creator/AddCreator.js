@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { post } from 'axios';
-import { BASE_API_URL } from '../../../AppConstants';
+import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const AddCreator = () => {
+export const AddCreator = ({ setChangeOccured }) => {
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [responseMessage, setResponseMessage] = useState(null);
+
   const onCreateClick = () => {
     setResponseMessage('...Processing');
 
@@ -16,12 +18,11 @@ export const AddCreator = () => {
         firstName,
         lastName
       },
-      {
-        withCredentials: true,
-      }
+      DEFAULT_AXIOS_OPTIONS
     )
       .then(() => {
         setResponseMessage('Success');
+        setChangeOccured(true);
         setFirstName('');
         setLastName('');
       })

@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 import { getCreatorText } from './utils';
 
-export const UpdateCreator = ({ creators = [], setChangeOccured }) => {
+export const UpdateCreator = ({ creators = [], setLastChangeOccured }) => {
 
   const [creatorId, setCreatorId] = useState(null);
   const [firstName, setFirstName] = useState('');
@@ -26,8 +26,8 @@ export const UpdateCreator = ({ creators = [], setChangeOccured }) => {
       )
         .then(() => {
           setResponseMessage('Success');
-          setChangeOccured(true);
-          setCreatorId('');
+          setLastChangeOccured(new Date());
+          setCreatorId(null);
           setFirstName('');
           setLastName('');
         })
@@ -60,13 +60,18 @@ export const UpdateCreator = ({ creators = [], setChangeOccured }) => {
     label: getCreatorText(creator)
   }));
 
+  console.log("creators", creators);
+
+  const selectValue = selectOptions.find(option => option.value === creatorId);
+  console.log("selectValue", selectValue);
+
   //TODO: Fix the update on click
   return (
     <>
       <h3 className='has-text-left is-size-4'>Edit Creator</h3>
       <div className="column is-one-third">
         <Select
-          value={selectOptions.find(option => option.value === creatorId)}
+          value={selectValue || null}
           onChange={selectedOption => setCreatorId(selectedOption.value)}
           options={selectOptions}
           isClearable={true}

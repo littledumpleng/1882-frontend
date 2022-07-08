@@ -1,11 +1,11 @@
 import React from 'react';
 import { getCreatorText } from './utils';
 
-export const ListCreators = ({ creators, setChangeOccured }) => {
+export const ListCreators = ({ creators, setLastChangeOccured }) => {
 
   const onDeleteClick = (creator) => () => {
     if (window.confirm(`Are you sure that you want to delete ${getCreatorText(creator)}`)) {
-      setChangeOccured(true);
+      setLastChangeOccured(new Date());
     }
   }
 

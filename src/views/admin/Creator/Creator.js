@@ -9,7 +9,7 @@ export const Creator = () => {
 
   // set function where if sessionStorage is not set, then return user to home
 
-  const [changeOccured, setChangeOccured] = useState(false);
+  const [lastChangeOccured, setLastChangeOccured] = useState(new Date());
   const [creators, setCreators] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export const Creator = () => {
       .catch((error) => {
         console.log("error", error)
       });
-  }, [changeOccured]);
+  }, [lastChangeOccured]);
 
   return (
     <div>
@@ -35,18 +35,18 @@ export const Creator = () => {
         <div className="content_element">
           <ListCreators
             creators={creators}
-            setChangeOccured={setChangeOccured}
+            setLastChangeOccured={setLastChangeOccured}
           />
         </div>
         <div className="content_element">
           <AddCreator
-            setChangeOccured={setChangeOccured}
+            setLastChangeOccured={setLastChangeOccured}
           />
         </div>
         <div className="content_element">
           <UpdateCreator
             creators={creators}
-            setChangeOccured={setChangeOccured}
+            setLastChangeOccured={setLastChangeOccured}
           />
         </div>
       </div>

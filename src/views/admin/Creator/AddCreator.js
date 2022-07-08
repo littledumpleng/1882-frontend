@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { post } from 'axios';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const AddCreator = ({ setChangeOccured }) => {
+export const AddCreator = ({ setLastChangeOccured }) => {
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -23,7 +23,7 @@ export const AddCreator = ({ setChangeOccured }) => {
       )
         .then(() => {
           setResponseMessage('Success');
-          setChangeOccured(true);
+          setLastChangeOccured(new Date());
           setFirstName('');
           setLastName('');
         })

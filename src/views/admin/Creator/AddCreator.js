@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { post } from 'axios';
+import axios from 'axios';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
 export const AddCreator = ({ setLastChangeOccured }) => {
@@ -12,8 +12,7 @@ export const AddCreator = ({ setLastChangeOccured }) => {
     if (window.confirm(`Are you sure that you want to create?`)) {
       setResponseMessage('...Processing');
 
-      //TODO: make `firstName` and `lastName` required and if they are not set, then disable the create button
-      post(
+      axios.post(
         `${BASE_API_URL}/creator`,
         {
           firstName,
@@ -29,10 +28,11 @@ export const AddCreator = ({ setLastChangeOccured }) => {
         })
         .catch((error) => {
           setResponseMessage('Error');
-          console.log("error", error)
+          console.error("error", error)
         });
     }
   }
+
   return (
     <>
       <h3 className='has-text-left is-size-4'>Add Creator</h3>

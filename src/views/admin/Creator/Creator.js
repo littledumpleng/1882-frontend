@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { get } from 'axios';
+import axios from 'axios';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 import { AddCreator } from './AddCreator';
 import { ListCreators } from './ListCreators';
@@ -13,7 +13,7 @@ export const Creator = () => {
   const [creators, setCreators] = useState([]);
 
   useEffect(() => {
-    get(
+    axios.get(
       `${BASE_API_URL}/creator`,
       DEFAULT_AXIOS_OPTIONS
     )
@@ -21,7 +21,7 @@ export const Creator = () => {
         setCreators(res.data);
       })
       .catch((error) => {
-        console.log("error", error)
+        console.error("error", error)
       });
   }, [lastChangeOccured]);
 

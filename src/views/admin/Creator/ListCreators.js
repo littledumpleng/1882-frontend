@@ -1,11 +1,23 @@
 import React from 'react';
+import axios from 'axios';
+import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 import { getCreatorText } from './utils';
 
 export const ListCreators = ({ creators, setLastChangeOccured }) => {
 
   const onDeleteClick = (creator) => () => {
     if (window.confirm(`Are you sure that you want to delete ${getCreatorText(creator)}`)) {
-      setLastChangeOccured(new Date());
+
+      axios.delete(
+        `${BASE_API_URL}/creator/${creator.id}`,
+        DEFAULT_AXIOS_OPTIONS
+      )
+        .then(() => {
+          setLastChangeOccured(new Date());
+        })
+        .catch((error) => {
+          console.error("error", error)
+        });
     }
   }
 

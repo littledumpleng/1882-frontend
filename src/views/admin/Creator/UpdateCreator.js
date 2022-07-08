@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { put, get } from 'axios';
+import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 import { getCreatorText } from './utils';
@@ -15,7 +15,7 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
     if (window.confirm(`Are you sure that you want to update?`)) {
       setResponseMessage('...Processing');
 
-      put(
+      axios.put(
         `${BASE_API_URL}/creator/${creatorId}`,
         {
           firstName,
@@ -32,14 +32,14 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
         })
         .catch((error) => {
           setResponseMessage('Error');
-          console.log("error", error)
+          console.error("error", error)
         });
     }
   }
 
   useEffect(() => {
     if (creatorId) {
-      get(
+      axios.get(
         `${BASE_API_URL}/creator/${creatorId}`,
         DEFAULT_AXIOS_OPTIONS
       )
@@ -49,7 +49,7 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
           setLastName(lastName);
         })
         .catch((error) => {
-          console.log("error", error)
+          console.error("error", error)
         });
     }
   }, [creatorId]);
@@ -61,7 +61,6 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
 
   const selectValue = selectOptions.find(option => option.value === creatorId);
 
-  //TODO: Fix the update on click
   return (
     <>
       <h3 className='has-text-left is-size-4'>Edit Creator</h3>

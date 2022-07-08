@@ -26,6 +26,12 @@ const App = () => {
           <Route path="/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/creator" element={<Creator />} />
+          {/* <Route path="/background" element={<Background />} />
+          <Route path="/genre" element={<Genre />} />
+          <Route path="/mediaType" element={<MediaType />} />
+          <Route path="/role" element={<Role />} />
+          <Route path="/theme" element={<Theme />} />
+          <Route path="/allMedia" element={<AllMedia />} /> */}
         </Routes>
       </BrowserRouter>
       <Footer />

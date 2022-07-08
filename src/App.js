@@ -6,7 +6,7 @@ import { Contact } from './views/public/Contact';
 import { Featured } from './views/public/Featured';
 import { About } from './views/public/About';
 import { Resources } from './views/public/Resources';
-import { AdminLogin } from './views/AdminLogin';
+import { AdminLogin } from './views/public/AdminLogin';
 import { AdminDashboard } from './views/admin/AdminDashboard';
 import { Creator } from './views/admin/Creator';
 import { Header } from './components/Header';

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { ADMIN_PASSWORD } from '../AppConstants';
+import { ADMIN_PASSWORD, ADMIN_LOGIN_SESSION_STORAGE_KEY, ADMIN_LOGIN_SESSION_STORAGE_VALUE } from '../AppConstants';
 
+// checks if the admin is logged in. If they aren't then it redirects them to the homepage
 export const AdminLogin = () => {
   const navigate = useNavigate();
   const [password, setPassword] = useState();
@@ -10,6 +11,7 @@ export const AdminLogin = () => {
   const onLoginClick = () => {
     if (password === ADMIN_PASSWORD) {
       setResponseMessage('Success');
+      sessionStorage.setItem(ADMIN_LOGIN_SESSION_STORAGE_KEY, ADMIN_LOGIN_SESSION_STORAGE_VALUE);
       navigate('/admin');
     }
     else {

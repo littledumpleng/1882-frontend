@@ -1,8 +1,16 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { ADMIN_LOGIN_SESSION_STORAGE_KEY } from '../../AppConstants';
+import { useAdminLoggedIn } from '../../hooks';
 
 export const AdminDashboard = () => {
+  const navigate = useNavigate();
+  useAdminLoggedIn();
 
-  // check sessionStorage
+  const onLogoutClick = () => {
+    sessionStorage.removeItem(ADMIN_LOGIN_SESSION_STORAGE_KEY);
+    navigate('/');
+  }
 
   return (
     <div>
@@ -21,7 +29,14 @@ export const AdminDashboard = () => {
         <a href='/theme'>Manage Themes</a>
         <br />
         <a href='/allMedia'>Manage All Media</a>
-        <br />
+        <div className="column">
+          <button
+            className="button is-link is-small"
+            onClick={onLogoutClick}
+          >
+            Logout
+          </button>
+        </div>
       </div >
     </div>
   )

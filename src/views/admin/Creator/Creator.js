@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
+import { useAdminLoggedIn } from '../../../hooks';
 import { AddCreator } from './AddCreator';
 import { ListCreators } from './ListCreators';
 import { UpdateCreator } from './UpdateCreator';
 
 export const Creator = () => {
-
-  // set function where if sessionStorage is not set, then return user to home
+  useAdminLoggedIn();
 
   const [lastChangeOccured, setLastChangeOccured] = useState(new Date());
   const [creators, setCreators] = useState([]);

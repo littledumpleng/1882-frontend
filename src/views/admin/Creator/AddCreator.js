@@ -57,6 +57,7 @@ export const AddCreator = ({ setLastChangeOccured }) => {
       <div className="column">
         <button
           className="button is-info"
+          disabled={firstName === '' || lastName === ''}
           onClick={onCreateClick}
         >
           Create

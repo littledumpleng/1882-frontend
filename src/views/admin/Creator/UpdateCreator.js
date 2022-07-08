@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 import { getCreatorText } from './utils';
 
-export const UpdateCreator = ({ creators = [], setLastChangeOccured }) => {
+export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
 
   const [creatorId, setCreatorId] = useState(null);
   const [firstName, setFirstName] = useState('');
@@ -15,7 +15,6 @@ export const UpdateCreator = ({ creators = [], setLastChangeOccured }) => {
     if (window.confirm(`Are you sure that you want to update?`)) {
       setResponseMessage('...Processing');
 
-      //TODO: make `firstName` and `lastName` required
       put(
         `${BASE_API_URL}/creator/${creatorId}`,
         {
@@ -60,10 +59,7 @@ export const UpdateCreator = ({ creators = [], setLastChangeOccured }) => {
     label: getCreatorText(creator)
   }));
 
-  console.log("creators", creators);
-
   const selectValue = selectOptions.find(option => option.value === creatorId);
-  console.log("selectValue", selectValue);
 
   //TODO: Fix the update on click
   return (
@@ -99,7 +95,7 @@ export const UpdateCreator = ({ creators = [], setLastChangeOccured }) => {
       <div className="column is-one-third">
         <button
           className="button is-primary"
-          disabled={creatorId === null}
+          disabled={creatorId === null || firstName === '' || lastName === ''}
           onClick={onUpdateClick}
         >
           Update

@@ -1,20 +1,32 @@
 import React from 'react';
-
-const getCreatorText = ({ id, firstName, lastName }) => `${firstName} ${lastName} (id: ${id})`;
+import { getCreatorText } from './utils';
 
 export const ListCreators = ({ creators, setChangeOccured }) => {
 
   const onDeleteClick = (creator) => () => {
-    //TODO: make this an option pop-up
-    alert(`Are you sure that you want to delete ${getCreatorText(creator)}`);
-    setChangeOccured(true);
+    if (window.confirm(`Are you sure that you want to delete ${getCreatorText(creator)}`)) {
+      setChangeOccured(true);
+    }
   }
 
   return (
     <>
-      <h3>Existing Creators</h3>
+      <h3 className='has-text-left is-size-4'>Existing Creators</h3>
       <div>
-        {creators.map(creator => <p key={creator.id}>{getCreatorText(creator)} <button onClick={onDeleteClick(creator)}>Delete</button></p>)}
+        {creators.map(creator => (
+          <p
+            className="is-size-5 m-4"
+            key={creator.id}
+          >
+            - {getCreatorText(creator)}
+            <button
+              className="button is-small is-danger ml-2"
+              onClick={onDeleteClick(creator)}
+            >
+              Delete
+            </button>
+          </p>
+        ))}
       </div>
     </>
   )

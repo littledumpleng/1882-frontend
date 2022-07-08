@@ -9,46 +9,59 @@ export const AddCreator = ({ setChangeOccured }) => {
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onCreateClick = () => {
-    setResponseMessage('...Processing');
+    if (window.confirm(`Are you sure that you want to create?`)) {
+      setResponseMessage('...Processing');
 
-    //TODO: make `firstName` and `lastName` required and if they are not set, then disable the create button
-    post(
-      `${BASE_API_URL}/creator`,
-      {
-        firstName,
-        lastName
-      },
-      DEFAULT_AXIOS_OPTIONS
-    )
-      .then(() => {
-        setResponseMessage('Success');
-        setChangeOccured(true);
-        setFirstName('');
-        setLastName('');
-      })
-      .catch((error) => {
-        setResponseMessage('Error');
-        console.log("error", error)
-      });
+      //TODO: make `firstName` and `lastName` required and if they are not set, then disable the create button
+      post(
+        `${BASE_API_URL}/creator`,
+        {
+          firstName,
+          lastName
+        },
+        DEFAULT_AXIOS_OPTIONS
+      )
+        .then(() => {
+          setResponseMessage('Success');
+          setChangeOccured(true);
+          setFirstName('');
+          setLastName('');
+        })
+        .catch((error) => {
+          setResponseMessage('Error');
+          console.log("error", error)
+        });
+    }
   }
   return (
     <>
-      <h3>Add Creator</h3>
-      <input
-        type='text'
-        placeholder='First Name'
-        value={firstName}
-        onChange={event => setFirstName(event.target.value)}
-      />
-      <br />
-      <input
-        type='text'
-        placeholder='Last Name'
-        value={lastName}
-        onChange={event => setLastName(event.target.value)}
-      />
-      <br />
-      <button onClick={onCreateClick}>Create</button>
+      <h3 className='has-text-left is-size-4'>Add Creator</h3>
+      <div className="column is-one-third">
+        <input
+          className="input"
+          type='text'
+          placeholder='First Name'
+          value={firstName}
+          onChange={event => setFirstName(event.target.value)}
+        />
+      </div>
+      <div className="column is-one-third">
+        <input
+          className="input"
+          type='text'
+          placeholder='Last Name'
+          value={lastName}
+          onChange={event => setLastName(event.target.value)}
+        />
+      </div>
+      <div className="column">
+        <button
+          className="button is-info"
+          onClick={onCreateClick}
+        >
+          Create
+        </button>
+      </div>
       <p>{responseMessage ?? ''}</p>
     </>
   )

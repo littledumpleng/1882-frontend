@@ -28,7 +28,7 @@ export const AdminDashboard = () => {
         <br />
         <a href='/theme'>Manage Themes</a>
         <br />
-        <a href='/allMedia'>Manage All Media</a>
+        <a href='/media'>Manage Media</a>
         <br />
         <a href='/review'>Manage Reviews</a>
         <br />

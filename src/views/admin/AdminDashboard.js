@@ -29,6 +29,9 @@ export const AdminDashboard = () => {
         <a href='/theme'>Manage Themes</a>
         <br />
         <a href='/allMedia'>Manage All Media</a>
+        <br />
+        <a href='/review'>Manage Reviews</a>
+        <br />
         <div className="column">
           <button
             className="button is-link is-small"

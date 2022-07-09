@@ -11,6 +11,7 @@ import { AdminDashboard } from './views/admin/AdminDashboard';
 import { Creator } from './views/admin/Creator';
 import { Background } from './views/admin/Background';
 import { Genre } from './views/admin/Genre';
+import { MediaType } from './views/admin/MediaType';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
@@ -30,8 +31,8 @@ const App = () => {
           <Route path="/creator" element={<Creator />} />
           <Route path="/background" element={<Background />} />
           <Route path="/genre" element={<Genre />} />
-          {/* <Route path="/mediaType" element={<MediaType />} />
-          <Route path="/role" element={<Role />} />
+          <Route path="/mediaType" element={<MediaType />} />
+          {/* <Route path="/role" element={<Role />} />
           <Route path="/theme" element={<Theme />} />
           <Route path="/allMedia" element={<AllMedia />} /> */}
         </Routes>

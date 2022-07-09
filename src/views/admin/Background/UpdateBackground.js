@@ -46,6 +46,8 @@ export const UpdateBackground = ({ backgrounds, setLastChangeOccured }) => {
         .catch((error) => {
           console.error("error", error)
         });
+    } else {
+      setName('');
     }
   }, [backgroundId]);
 
@@ -62,7 +64,7 @@ export const UpdateBackground = ({ backgrounds, setLastChangeOccured }) => {
       <div className="column is-one-third">
         <Select
           value={selectValue || null}
-          onChange={selectedOption => setBackgroundId(selectedOption.value)}
+          onChange={selectedOption => setBackgroundId(selectedOption?.value)}
           options={selectOptions}
           isClearable={true}
           isSearchable={true}

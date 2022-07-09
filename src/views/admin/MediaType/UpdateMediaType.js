@@ -46,6 +46,8 @@ export const UpdateMediaType = ({ mediaTypes, setLastChangeOccured }) => {
         .catch((error) => {
           console.error("error", error)
         });
+    } else {
+      setName('');
     }
   }, [mediaTypeId]);
 
@@ -62,7 +64,7 @@ export const UpdateMediaType = ({ mediaTypes, setLastChangeOccured }) => {
       <div className="column is-one-third">
         <Select
           value={selectValue || null}
-          onChange={selectedOption => setMediaTypeId(selectedOption.value)}
+          onChange={selectedOption => setMediaTypeId(selectedOption?.value)}
           options={selectOptions}
           isClearable={true}
           isSearchable={true}

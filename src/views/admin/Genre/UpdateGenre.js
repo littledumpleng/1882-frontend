@@ -46,6 +46,8 @@ export const UpdateGenre = ({ genres, setLastChangeOccured }) => {
         .catch((error) => {
           console.error("error", error)
         });
+    } else {
+      setName('');
     }
   }, [genreId]);
 
@@ -62,7 +64,7 @@ export const UpdateGenre = ({ genres, setLastChangeOccured }) => {
       <div className="column is-one-third">
         <Select
           value={selectValue || null}
-          onChange={selectedOption => setGenreId(selectedOption.value)}
+          onChange={selectedOption => setGenreId(selectedOption?.value)}
           options={selectOptions}
           isClearable={true}
           isSearchable={true}

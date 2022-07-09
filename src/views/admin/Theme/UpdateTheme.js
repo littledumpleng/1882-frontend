@@ -46,6 +46,8 @@ export const UpdateTheme = ({ themes, setLastChangeOccured }) => {
         .catch((error) => {
           console.error("error", error)
         });
+    } else {
+      setName('');
     }
   }, [themeId]);
 
@@ -62,7 +64,7 @@ export const UpdateTheme = ({ themes, setLastChangeOccured }) => {
       <div className="column is-one-third">
         <Select
           value={selectValue || null}
-          onChange={selectedOption => setThemeId(selectedOption.value)}
+          onChange={selectedOption => setThemeId(selectedOption?.value)}
           options={selectOptions}
           isClearable={true}
           isSearchable={true}

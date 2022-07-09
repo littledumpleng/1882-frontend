@@ -14,6 +14,7 @@ import { Genre } from './views/admin/Genre';
 import { MediaType } from './views/admin/MediaType';
 import { Role } from './views/admin/Role';
 import { Theme } from './views/admin/Theme';
+import { Media } from './views/admin/Media';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 
@@ -36,8 +37,8 @@ const App = () => {
           <Route path="/mediaType" element={<MediaType />} />
           <Route path="/role" element={<Role />} />
           <Route path="/theme" element={<Theme />} />
-          {/* <Route path="/review" element={<Review />} />
-          <Route path="/allMedia" element={<AllMedia />} /> */}
+          {/* <Route path="/review" element={<Review />} /> */}
+          <Route path="/media" element={<Media />} />
         </Routes>
       </BrowserRouter>
       <Footer />

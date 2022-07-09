@@ -3,11 +3,12 @@ import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
+export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
 
-  const [creatorId, setCreatorId] = useState(null);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [mediaId, setMediaId] = useState(null);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [releaseDate, setReleaseDate] = useState('');
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onUpdateClick = () => {
@@ -15,19 +16,19 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
       setResponseMessage('...Processing');
 
       axios.put(
-        `${BASE_API_URL}/creator/${creatorId}`,
+        `${BASE_API_URL}/media/${mediaId}`,
         {
-          firstName,
-          lastName
+          title,
         },
         DEFAULT_AXIOS_OPTIONS
       )
         .then(() => {
           setResponseMessage('Success');
           setLastChangeOccured(new Date());
-          setCreatorId(null);
-          setFirstName('');
-          setLastName('');
+          setMediaId(null);
+          setTitle('');
+          setDescription('');
+          setReleaseDate(null);
         })
         .catch((error) => {
           setResponseMessage('Error');
@@ -37,39 +38,41 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
   }
 
   useEffect(() => {
-    if (creatorId) {
+    if (mediaId) {
       axios.get(
-        `${BASE_API_URL}/creator/${creatorId}`,
+        `${BASE_API_URL}/media/${mediaId}`,
         DEFAULT_AXIOS_OPTIONS
       )
         .then((res) => {
-          const { firstName, lastName } = res.data;
-          setFirstName(firstName);
-          setLastName(lastName);
+          const { title, description, releaseDate } = res.data;
+          setTitle(title);
+          setDescription(description);
+          setReleaseDate(releaseDate);
         })
         .catch((error) => {
           console.error("error", error)
         });
     } else {
-      setFirstName('');
-      setLastName('');
+      setTitle('');
+      setDescription('');
+      setReleaseDate('');
     }
-  }, [creatorId]);
+  }, [mediaId]);
 
-  const selectOptions = creators.map(creator => ({
-    value: creator.id,
-    label: `${creator.firstName} ${creator.lastName} (id: ${creator.id})`
+  const selectOptions = medias.map(media => ({
+    value: media.id,
+    label: `${media.title} (id: ${media.id})`
   }));
 
-  const selectValue = selectOptions.find(option => option.value === creatorId);
+  const selectValue = selectOptions.find(option => option.value === mediaId);
 
   return (
     <>
-      <h3 className='has-text-left is-size-4'>Edit Creator</h3>
+      <h3 className='has-text-left is-size-4'>Edit Media</h3>
       <div className="column is-one-third">
         <Select
           value={selectValue || null}
-          onChange={selectedOption => setCreatorId(selectedOption?.value)}
+          onChange={selectedOption => setMediaId(selectedOption?.value)}
           options={selectOptions}
           isClearable={true}
           isSearchable={true}
@@ -79,24 +82,32 @@ export const UpdateCreator = ({ creators, setLastChangeOccured }) => {
         <input
           className="input"
           type='text'
-          placeholder='First Name'
-          value={firstName}
-          onChange={event => setFirstName(event.target.value)}
+          placeholder='Media title'
+          value={title}
+          onChange={event => setTitle(event.target.value)}
         />
       </div>
       <div className="column is-one-third">
+        <textarea
+          class="textarea"
+          placeholder='Media description'
+          value={description}
+          onChange={event => setDescription(event.target.value)}
+        />
+      </div>
+      <div className="column is-one-third">
+        <p>Release Date</p>
         <input
           className="input"
-          type='text'
-          placeholder='Last Name'
-          value={lastName}
-          onChange={event => setLastName(event.target.value)}
+          type="date"
+          value={releaseDate}
+          onChange={event => setReleaseDate(event.target.value)}
         />
       </div>
       <div className="column is-one-third">
         <button
           className="button is-primary"
-          disabled={creatorId === null || firstName === '' || lastName === ''}
+          disabled={mediaId === null || title === ''}
           onClick={onUpdateClick}
         >
           Update

@@ -46,6 +46,8 @@ export const UpdateRole = ({ roles, setLastChangeOccured }) => {
         .catch((error) => {
           console.error("error", error)
         });
+    } else {
+      setName('');
     }
   }, [roleId]);
 
@@ -62,7 +64,7 @@ export const UpdateRole = ({ roles, setLastChangeOccured }) => {
       <div className="column is-one-third">
         <Select
           value={selectValue || null}
-          onChange={selectedOption => setRoleId(selectedOption.value)}
+          onChange={selectedOption => setRoleId(selectedOption?.value)}
           options={selectOptions}
           isClearable={true}
           isSearchable={true}

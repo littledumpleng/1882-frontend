@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Homepage } from './views/public/Homepage';
 import { Contact } from './views/public/Contact';
-import { Featured } from './views/public/Featured';
 import { About } from './views/public/About';
 import { Resources } from './views/public/Resources';
 import { AdminLogin } from './views/public/AdminLogin';
@@ -27,7 +26,6 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
-          <Route path="/featured" element={<Featured />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />

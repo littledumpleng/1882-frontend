@@ -68,6 +68,7 @@ export const Media = () => {
           <UpdateMedia
             medias={medias}
             setLastChangeOccured={setLastChangeOccured}
+            mediaTypeOptions={mediaTypeOptions}
           />
         </div>
       </div>

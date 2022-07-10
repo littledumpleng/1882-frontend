@@ -3,12 +3,13 @@ import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
+export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) => {
 
-  const [mediaId, setMediaId] = useState(null);
+  const [mediaId, setMediaId] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
+  const [mediaTypeIds, setMediaTypeIds] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onUpdateClick = () => {
@@ -19,13 +20,16 @@ export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
         `${BASE_API_URL}/media/${mediaId}`,
         {
           title,
+          description,
+          releaseDate,
+          mediaTypeIds,
         },
         DEFAULT_AXIOS_OPTIONS
       )
         .then(() => {
           setResponseMessage('Success');
           setLastChangeOccured(new Date());
-          setMediaId(null);
+          setMediaId('');
           setTitle('');
           setDescription('');
           setReleaseDate(null);
@@ -38,16 +42,18 @@ export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
   }
 
   useEffect(() => {
-    if (mediaId) {
+    if (mediaId !== '') {
+      // get media fields
       axios.get(
         `${BASE_API_URL}/media/${mediaId}`,
         DEFAULT_AXIOS_OPTIONS
       )
         .then((res) => {
-          const { title, description, releaseDate } = res.data;
+          const { title, description, releaseDate, mediaTypes } = res.data;
           setTitle(title);
           setDescription(description);
           setReleaseDate(releaseDate);
+          setMediaTypeIds(mediaTypes.map(mediaType => mediaType.id));
         })
         .catch((error) => {
           console.error("error", error)
@@ -56,6 +62,7 @@ export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
       setTitle('');
       setDescription('');
       setReleaseDate('');
+      setMediaTypeIds([])
     }
   }, [mediaId]);
 
@@ -105,15 +112,17 @@ export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
           onChange={event => setReleaseDate(event.target.value)}
         />
       </div>
-      {/* <div className="column is-one-third">
+      <div className="column is-one-third">
+        <p>Media Type</p>
         <Select
-          value={mediaTypeOptions.find(option => option.value === mediaTypeId) || null}
-          onChange={selectedOption => setMediaTypeId(selectedOption?.value)}
+          value={mediaTypeOptions.filter(option => mediaTypeIds.includes(option.value)) || null}
+          onChange={selectedOptions => setMediaTypeIds(selectedOptions.map(selectedOption => selectedOption?.value))}
           options={mediaTypeOptions}
+          isMulti
           isClearable={true}
           isSearchable={true}
         />
-      </div > */}
+      </div >
       <div className="column is-one-third">
         <button
           className="button is-primary"

@@ -139,24 +139,33 @@ export const Homepage = () => {
             <h1 className='has-text-left m-4'>Results:</h1>
             <div className="content">
               <div className="box">
-                {mediaResults.length > 0 ? mediaResults.map(media => (
-                  <div className="content_element">
-                    <div className="item-wrap">
-                      <h3>Featured Review of the Month</h3>
-                      <div className="item">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                        do eiusmod tempor incididunt ut labore et dolore magna
-                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit
-                        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                        occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum.
-                      </div>
+                {mediaResults.length > 0 ? mediaResults.map(media => {
+                  const { title, description, releaseDate, mediaTypes, genres, themes, backgrounds } = media;
+                  return (
+                    <div className="content_element">
+                      <h3>{title}</h3>
+                      {mediaTypes.length > 0 && (
+                        <p><span className='has-text-grey mr-2'>Media Types:</span>{mediaTypes.map(mediaType => mediaType.name).join(', ')}</p>
+                      )}
+                      {genres.length > 0 && (
+                        <p><span className='has-text-grey mr-2'>Genres: </span>{genres.map(genre => genre.name).join(', ')}</p>
+                      )}
+                      {themes.length > 0 && (<p><span className='has-text-grey mr-2'>Themes: </span>{themes.map(theme => theme.name).join(', ')}</p>
+                      )}
+                      {backgrounds.length > 0 && (
+                        <p><span className='has-text-grey mr-2'>Backgrounds: </span>{backgrounds.map(background => background.name).join(', ')}</p>
+                      )}
+                      {releaseDate && (
+                        <p><span className='has-text-grey mr-2'>Released: </span>{new Date(releaseDate).toLocaleDateString()}</p>
+                      )}
+                      {description && (
+                        <p><span className='has-text-grey mr-2'>Description: </span>{description}</p>
+                      )}
                     </div>
-                  </div>
-                ))
-                  : <p>No results</p>}
+                  )
+                })
+                  : <p>No results</p>
+                }
               </div>
             </div>
           </div>

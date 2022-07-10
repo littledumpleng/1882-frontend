@@ -8,8 +8,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
-  const [mediaTypeIds, setMediaTypeIds] = useState([]);
-  const [genreIds, setGenreIds] = useState([]);
+  const [mediaTypes, setMediaTypes] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onCreateClick = () => {
@@ -22,8 +22,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
           title,
           description,
           releaseDate,
-          mediaTypeIds,
-          genreIds,
+          mediaTypeIds: mediaTypes.map(mediaType => mediaType?.value),
+          genreIds: genres.map(genre => genre?.value),
         },
         DEFAULT_AXIOS_OPTIONS
       )
@@ -33,8 +33,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
           setTitle('');
           setDescription('');
           setReleaseDate('');
-          setMediaTypeIds([]);
-          setGenreIds([]);
+          setMediaTypes([]);
+          setGenres([]);
         })
         .catch((error) => {
           setResponseMessage('Error');
@@ -75,8 +75,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
       <div className="column is-one-third">
         <p>Media Types</p>
         <Select
-          value={mediaTypeOptions.filter(option => mediaTypeIds.includes(option.value)) || null}
-          onChange={selectedOptions => setMediaTypeIds(selectedOptions.map(selectedOption => selectedOption?.value))}
+          value={mediaTypes}
+          onChange={selectedOptions => setMediaTypes(selectedOptions)}
           options={mediaTypeOptions}
           isMulti
           isClearable={true}
@@ -86,8 +86,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
       <div className="column is-one-third">
         <p>Genres</p>
         <Select
-          value={genreOptions.filter(option => genreIds.includes(option.value)) || null}
-          onChange={selectedOptions => setGenreIds(selectedOptions.map(selectedOption => selectedOption?.value))}
+          value={genres}
+          onChange={selectedOptions => setGenres(selectedOptions)}
           options={genreOptions}
           isMulti
           isClearable={true}

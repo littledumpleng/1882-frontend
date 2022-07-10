@@ -9,8 +9,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
-  const [mediaTypeIds, setMediaTypeIds] = useState([]);
-  const [genreIds, setGenreIds] = useState([]);
+  const [mediaTypes, setMediaTypes] = useState([]);
+  const [genres, setGenres] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onUpdateClick = () => {
@@ -23,8 +23,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
           title,
           description,
           releaseDate,
-          mediaTypeIds,
-          genreIds,
+          mediaTypeIds: mediaTypes.map(mediaType => mediaType?.value),
+          genreIds: genres.map(genre => genre?.value),
         },
         DEFAULT_AXIOS_OPTIONS
       )
@@ -53,8 +53,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
           setTitle(title);
           setDescription(description);
           setReleaseDate(releaseDate);
-          setMediaTypeIds(mediaTypes.map(mediaType => mediaType.id));
-          setGenreIds(genres.map(genre => genre.id));
+          setMediaTypes(mediaTypes.map(mediaType => ({ value: mediaType.id, label: mediaType.name })));
+          setGenres(genres.map(genre => ({ value: genre.id, label: genre.name })));
         })
         .catch((error) => {
           console.error("error", error)
@@ -63,8 +63,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
       setTitle('');
       setDescription('');
       setReleaseDate('');
-      setMediaTypeIds([])
-      setGenreIds([])
+      setMediaTypes([])
+      setGenres([])
     }
   }, [mediaId]);
 
@@ -115,10 +115,10 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
         />
       </div>
       <div className="column is-one-third">
-        <p>Media Type</p>
+        <p>Media Types</p>
         <Select
-          value={mediaTypeOptions.filter(option => mediaTypeIds.includes(option.value)) || null}
-          onChange={selectedOptions => setMediaTypeIds(selectedOptions.map(selectedOption => selectedOption?.value))}
+          value={mediaTypes}
+          onChange={selectedOptions => setMediaTypes(selectedOptions)}
           options={mediaTypeOptions}
           isMulti
           isClearable={true}
@@ -128,8 +128,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
       <div className="column is-one-third">
         <p>Genres</p>
         <Select
-          value={genreOptions.filter(option => genreIds.includes(option.value)) || null}
-          onChange={selectedOptions => setGenreIds(selectedOptions.map(selectedOption => selectedOption?.value))}
+          value={genres}
+          onChange={selectedOptions => setGenres(selectedOptions)}
           options={genreOptions}
           isMulti
           isClearable={true}

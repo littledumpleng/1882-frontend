@@ -96,17 +96,16 @@ export const Homepage = () => {
       {
         params: {
           searchTerm: searchTerm !== '' ? searchTerm : undefined,
-          mediaTypeIds: mediaTypesSelected.map(mediaType => mediaType.id),
-          backgroundIds: backgroundsSelected.map(background => background.id),
-          genreIds: genresSelected.map(genre => genre.id),
-          themeIds: themesSelected.map(theme => theme.id),
+          mediaTypeIds: mediaTypesSelected.map(mediaType => mediaType.value),
+          backgroundIds: backgroundsSelected.map(background => background.value),
+          genreIds: genresSelected.map(genre => genre.value),
+          themeIds: themesSelected.map(theme => theme.value),
         },
         ...DEFAULT_AXIOS_OPTIONS
       }
     )
       .then((res) => {
-        console.log(res.data);
-        // setMediaResults
+        setMediaResults(res.data)
       })
       .catch((error) => {
         console.error("error", error);
@@ -139,8 +138,8 @@ export const Homepage = () => {
           <div className="box">
             <h1 className='has-text-left m-4'>Results:</h1>
             <div className="content">
-              {mediaResults.map(media => (
-                <div className="box">
+              <div className="box">
+                {mediaResults.length > 0 ? mediaResults.map(media => (
                   <div className="content_element">
                     <div className="item-wrap">
                       <h3>Featured Review of the Month</h3>
@@ -156,8 +155,9 @@ export const Homepage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+                  : <p>No results</p>}
+              </div>
             </div>
           </div>
         </div>

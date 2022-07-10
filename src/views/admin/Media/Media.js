@@ -11,7 +11,9 @@ export const Media = () => {
 
   const [lastChangeOccured, setLastChangeOccured] = useState(new Date());
   const [medias, setMedias] = useState([]);
+  const [mediaTypeOptions, setMediaTypeOptions] = useState([]);
 
+  // get media
   useEffect(() => {
     axios.get(
       `${BASE_API_URL}/media`,
@@ -24,6 +26,24 @@ export const Media = () => {
         console.error("error", error)
       });
   }, [lastChangeOccured]);
+
+  // get mediaTypes
+  useEffect(() => {
+    axios.get(
+      `${BASE_API_URL}/mediatype`,
+      DEFAULT_AXIOS_OPTIONS
+    )
+      .then((res) => {
+        const selectOptions = res.data.map(mediaType => ({
+          value: mediaType.id,
+          label: `${mediaType.name} (id: ${mediaType.id})`
+        }));
+        setMediaTypeOptions(selectOptions);
+      })
+      .catch((error) => {
+        console.error("error", error)
+      });
+  }, []);
 
   return (
     <div>
@@ -41,6 +61,7 @@ export const Media = () => {
         <div className="content_element">
           <AddMedia
             setLastChangeOccured={setLastChangeOccured}
+            mediaTypeOptions={mediaTypeOptions}
           />
         </div>
         <div className="content_element">

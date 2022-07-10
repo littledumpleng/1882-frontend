@@ -70,6 +70,7 @@ export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
     <>
       <h3 className='has-text-left is-size-4'>Edit Media</h3>
       <div className="column is-one-third">
+        <p>Media</p>
         <Select
           value={selectValue || null}
           onChange={selectedOption => setMediaId(selectedOption?.value)}
@@ -104,6 +105,15 @@ export const UpdateMedia = ({ medias, setLastChangeOccured }) => {
           onChange={event => setReleaseDate(event.target.value)}
         />
       </div>
+      {/* <div className="column is-one-third">
+        <Select
+          value={mediaTypeOptions.find(option => option.value === mediaTypeId) || null}
+          onChange={selectedOption => setMediaTypeId(selectedOption?.value)}
+          options={mediaTypeOptions}
+          isClearable={true}
+          isSearchable={true}
+        />
+      </div > */}
       <div className="column is-one-third">
         <button
           className="button is-primary"

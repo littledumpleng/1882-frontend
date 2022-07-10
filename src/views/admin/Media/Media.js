@@ -13,6 +13,8 @@ export const Media = () => {
   const [medias, setMedias] = useState([]);
   const [mediaTypeOptions, setMediaTypeOptions] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
+  const [themeOptions, setThemeOptions] = useState([]);
+  const [backgroundOptions, setBackgroundOptions] = useState([]);
 
   // get media
   useEffect(() => {
@@ -46,7 +48,7 @@ export const Media = () => {
       });
   }, [lastChangeOccured]);
 
-  // get mediaTypes
+  // get genres
   useEffect(() => {
     axios.get(
       `${BASE_API_URL}/genre`,
@@ -58,6 +60,42 @@ export const Media = () => {
           label: `${genre.name} (id: ${genre.id})`
         }));
         setGenreOptions(selectOptions);
+      })
+      .catch((error) => {
+        console.error("error", error)
+      });
+  }, [lastChangeOccured]);
+
+  // get themes
+  useEffect(() => {
+    axios.get(
+      `${BASE_API_URL}/theme`,
+      DEFAULT_AXIOS_OPTIONS
+    )
+      .then((res) => {
+        const selectOptions = res.data.map(theme => ({
+          value: theme.id,
+          label: `${theme.name} (id: ${theme.id})`
+        }));
+        setThemeOptions(selectOptions);
+      })
+      .catch((error) => {
+        console.error("error", error)
+      });
+  }, [lastChangeOccured]);
+
+  // get backgrounds
+  useEffect(() => {
+    axios.get(
+      `${BASE_API_URL}/background`,
+      DEFAULT_AXIOS_OPTIONS
+    )
+      .then((res) => {
+        const selectOptions = res.data.map(background => ({
+          value: background.id,
+          label: `${background.name} (id: ${background.id})`
+        }));
+        setBackgroundOptions(selectOptions);
       })
       .catch((error) => {
         console.error("error", error)
@@ -82,6 +120,8 @@ export const Media = () => {
             setLastChangeOccured={setLastChangeOccured}
             mediaTypeOptions={mediaTypeOptions}
             genreOptions={genreOptions}
+            themeOptions={themeOptions}
+            backgroundOptions={backgroundOptions}
           />
         </div>
         <div className="content_element">
@@ -90,6 +130,8 @@ export const Media = () => {
             setLastChangeOccured={setLastChangeOccured}
             mediaTypeOptions={mediaTypeOptions}
             genreOptions={genreOptions}
+            themeOptions={themeOptions}
+            backgroundOptions={backgroundOptions}
           />
         </div>
       </div>

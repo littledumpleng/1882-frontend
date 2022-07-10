@@ -3,7 +3,7 @@ import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastChangeOccured }) => {
+export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptions, backgroundOptions, setLastChangeOccured }) => {
 
   const [mediaId, setMediaId] = useState('');
   const [title, setTitle] = useState('');
@@ -11,6 +11,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
   const [releaseDate, setReleaseDate] = useState('');
   const [mediaTypes, setMediaTypes] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [themes, setThemes] = useState([]);
+  const [backgrounds, setBackgrounds] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onUpdateClick = () => {
@@ -25,6 +27,8 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
           releaseDate,
           mediaTypeIds: mediaTypes.map(mediaType => mediaType?.value),
           genreIds: genres.map(genre => genre?.value),
+          themeIds: themes.map(theme => theme?.value),
+          backgroundIds: backgrounds.map(background => background?.value),
         },
         DEFAULT_AXIOS_OPTIONS
       )
@@ -32,7 +36,6 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
           setResponseMessage('Success');
           setLastChangeOccured(new Date());
           setMediaId('');
-          setReleaseDate(null);
         })
         .catch((error) => {
           setResponseMessage('Error');
@@ -49,12 +52,14 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
         DEFAULT_AXIOS_OPTIONS
       )
         .then((res) => {
-          const { title, description, releaseDate, mediaTypes, genres } = res.data;
+          const { title, description, releaseDate, mediaTypes, genres, themes, backgrounds } = res.data;
           setTitle(title);
           setDescription(description);
           setReleaseDate(releaseDate);
           setMediaTypes(mediaTypes.map(mediaType => ({ value: mediaType.id, label: mediaType.name })));
           setGenres(genres.map(genre => ({ value: genre.id, label: genre.name })));
+          setThemes(themes.map(theme => ({ value: theme.id, label: theme.name })));
+          setBackgrounds(backgrounds.map(background => ({ value: background.id, label: background.name })));
         })
         .catch((error) => {
           console.error("error", error)
@@ -63,8 +68,10 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
       setTitle('');
       setDescription('');
       setReleaseDate('');
-      setMediaTypes([])
-      setGenres([])
+      setMediaTypes([]);
+      setGenres([]);
+      setThemes([]);
+      setBackgrounds([]);
     }
   }, [mediaId]);
 
@@ -87,7 +94,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
           isClearable={true}
           isSearchable={true}
         />
-      </div >
+      </div>
       <div className="column is-one-third">
         <input
           className="input"
@@ -135,7 +142,29 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastCha
           isClearable={true}
           isSearchable={true}
         />
-      </div >
+      </div>
+      <div className="column is-one-third">
+        <p>Themes</p>
+        <Select
+          value={themes}
+          onChange={selectedOptions => setThemes(selectedOptions)}
+          options={themeOptions}
+          isMulti
+          isClearable={true}
+          isSearchable={true}
+        />
+      </div>
+      <div className="column is-one-third">
+        <p>Backgrounds</p>
+        <Select
+          value={backgrounds}
+          onChange={selectedOptions => setBackgrounds(selectedOptions)}
+          options={backgroundOptions}
+          isMulti
+          isClearable={true}
+          isSearchable={true}
+        />
+      </div>
       <div className="column is-one-third">
         <button
           className="button is-primary"

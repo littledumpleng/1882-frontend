@@ -3,13 +3,15 @@ import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions }) => {
+export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgroundOptions, setLastChangeOccured }) => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
   const [mediaTypes, setMediaTypes] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [themes, setThemes] = useState([]);
+  const [backgrounds, setBackgrounds] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onCreateClick = () => {
@@ -24,6 +26,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
           releaseDate,
           mediaTypeIds: mediaTypes.map(mediaType => mediaType?.value),
           genreIds: genres.map(genre => genre?.value),
+          themeIds: themes.map(theme => theme?.value),
+          backgroundIds: backgrounds.map(background => background?.value),
         },
         DEFAULT_AXIOS_OPTIONS
       )
@@ -35,6 +39,8 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
           setReleaseDate('');
           setMediaTypes([]);
           setGenres([]);
+          setThemes([]);
+          setBackgrounds([]);
         })
         .catch((error) => {
           setResponseMessage('Error');
@@ -89,6 +95,28 @@ export const AddMedia = ({ setLastChangeOccured, mediaTypeOptions, genreOptions 
           value={genres}
           onChange={selectedOptions => setGenres(selectedOptions)}
           options={genreOptions}
+          isMulti
+          isClearable={true}
+          isSearchable={true}
+        />
+      </div>
+      <div className="column is-one-third">
+        <p>Themes</p>
+        <Select
+          value={themes}
+          onChange={selectedOptions => setThemes(selectedOptions)}
+          options={themeOptions}
+          isMulti
+          isClearable={true}
+          isSearchable={true}
+        />
+      </div>
+      <div className="column is-one-third">
+        <p>Backgrounds</p>
+        <Select
+          value={backgrounds}
+          onChange={selectedOptions => setBackgrounds(selectedOptions)}
+          options={backgroundOptions}
           isMulti
           isClearable={true}
           isSearchable={true}

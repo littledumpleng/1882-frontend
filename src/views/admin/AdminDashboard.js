@@ -30,8 +30,6 @@ export const AdminDashboard = () => {
         <br />
         <a href='/media'>Manage Media</a>
         <br />
-        <a href='/review'>Manage Reviews</a>
-        <br />
         <div className="column">
           <button
             className="button is-link is-small"

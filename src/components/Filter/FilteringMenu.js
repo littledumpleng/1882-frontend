@@ -1,5 +1,6 @@
 import React from 'react';
 import { FilterDropdown } from './FilterDropdown';
+import { SearchBar } from './SearchBar';
 
 export const FilteringMenu = ({
   backgroundOptions,
@@ -14,10 +15,26 @@ export const FilteringMenu = ({
   setGenresSelected,
   themesSelected,
   setThemesSelected,
+  searchTerm,
+  setSearchTerm,
+  onSearchClick,
 }) => {
   return (
     <div className="filter-menu, has-ratio">
       <h2 className="m-4">Filtering Menu</h2>
+      <div className="box ml-5">
+        <button
+          className="button is-info"
+          onClick={onSearchClick}
+        >
+          Search with Filters
+        </button>
+
+      </div>
+      <SearchBar
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
       <FilterDropdown
         label='Select Media Types'
         options={mediaTypeOptions}

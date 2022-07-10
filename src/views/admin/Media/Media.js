@@ -12,6 +12,7 @@ export const Media = () => {
   const [lastChangeOccured, setLastChangeOccured] = useState(new Date());
   const [medias, setMedias] = useState([]);
   const [mediaTypeOptions, setMediaTypeOptions] = useState([]);
+  const [genreOptions, setGenreOptions] = useState([]);
 
   // get media
   useEffect(() => {
@@ -43,7 +44,25 @@ export const Media = () => {
       .catch((error) => {
         console.error("error", error)
       });
-  }, []);
+  }, [lastChangeOccured]);
+
+  // get mediaTypes
+  useEffect(() => {
+    axios.get(
+      `${BASE_API_URL}/genre`,
+      DEFAULT_AXIOS_OPTIONS
+    )
+      .then((res) => {
+        const selectOptions = res.data.map(genre => ({
+          value: genre.id,
+          label: `${genre.name} (id: ${genre.id})`
+        }));
+        setGenreOptions(selectOptions);
+      })
+      .catch((error) => {
+        console.error("error", error)
+      });
+  }, [lastChangeOccured]);
 
   return (
     <div>
@@ -62,6 +81,7 @@ export const Media = () => {
           <AddMedia
             setLastChangeOccured={setLastChangeOccured}
             mediaTypeOptions={mediaTypeOptions}
+            genreOptions={genreOptions}
           />
         </div>
         <div className="content_element">
@@ -69,6 +89,7 @@ export const Media = () => {
             medias={medias}
             setLastChangeOccured={setLastChangeOccured}
             mediaTypeOptions={mediaTypeOptions}
+            genreOptions={genreOptions}
           />
         </div>
       </div>

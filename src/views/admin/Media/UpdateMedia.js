@@ -3,13 +3,14 @@ import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
 
-export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) => {
+export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, setLastChangeOccured }) => {
 
   const [mediaId, setMediaId] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
   const [mediaTypeIds, setMediaTypeIds] = useState([]);
+  const [genreIds, setGenreIds] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onUpdateClick = () => {
@@ -23,6 +24,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) 
           description,
           releaseDate,
           mediaTypeIds,
+          genreIds,
         },
         DEFAULT_AXIOS_OPTIONS
       )
@@ -30,8 +32,6 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) 
           setResponseMessage('Success');
           setLastChangeOccured(new Date());
           setMediaId('');
-          setTitle('');
-          setDescription('');
           setReleaseDate(null);
         })
         .catch((error) => {
@@ -42,18 +42,19 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) 
   }
 
   useEffect(() => {
-    if (mediaId !== '') {
+    if (mediaId && mediaId !== '') {
       // get media fields
       axios.get(
         `${BASE_API_URL}/media/${mediaId}`,
         DEFAULT_AXIOS_OPTIONS
       )
         .then((res) => {
-          const { title, description, releaseDate, mediaTypes } = res.data;
+          const { title, description, releaseDate, mediaTypes, genres } = res.data;
           setTitle(title);
           setDescription(description);
           setReleaseDate(releaseDate);
           setMediaTypeIds(mediaTypes.map(mediaType => mediaType.id));
+          setGenreIds(genres.map(genre => genre.id));
         })
         .catch((error) => {
           console.error("error", error)
@@ -63,6 +64,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) 
       setDescription('');
       setReleaseDate('');
       setMediaTypeIds([])
+      setGenreIds([])
     }
   }, [mediaId]);
 
@@ -97,7 +99,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) 
       </div>
       <div className="column is-one-third">
         <textarea
-          class="textarea"
+          className="textarea"
           placeholder='Media description'
           value={description}
           onChange={event => setDescription(event.target.value)}
@@ -118,6 +120,17 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, setLastChangeOccured }) 
           value={mediaTypeOptions.filter(option => mediaTypeIds.includes(option.value)) || null}
           onChange={selectedOptions => setMediaTypeIds(selectedOptions.map(selectedOption => selectedOption?.value))}
           options={mediaTypeOptions}
+          isMulti
+          isClearable={true}
+          isSearchable={true}
+        />
+      </div>
+      <div className="column is-one-third">
+        <p>Genres</p>
+        <Select
+          value={genreOptions.filter(option => genreIds.includes(option.value)) || null}
+          onChange={selectedOptions => setGenreIds(selectedOptions.map(selectedOption => selectedOption?.value))}
+          options={genreOptions}
           isMulti
           isClearable={true}
           isSearchable={true}

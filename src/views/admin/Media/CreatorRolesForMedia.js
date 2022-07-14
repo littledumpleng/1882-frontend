@@ -13,11 +13,15 @@ export const CreatorRolesForMedia = ({ creatorRoles = [], setCreatorRoles, creat
         creator,
         role,
       }
-    ])
+    ]);
+    setCreator(null);
+    setRole(null);
   }
 
-  const onDeleteClick = (creatorRole) => () => {
-    setCreatorRoles(creatorRoles.filter(cr => cr.creator.value !== creatorRole.creator.value || cr.role.value !== creatorRole.creator.value))
+  const onDeleteClick = (index) => () => {
+    const newValues = [...creatorRoles];
+    newValues.splice(index, 1);
+    setCreatorRoles(newValues);
   }
 
   return (
@@ -40,7 +44,7 @@ export const CreatorRolesForMedia = ({ creatorRoles = [], setCreatorRoles, creat
                 <td>
                   <button
                     className="button is-small is-danger ml-2"
-                    onClick={onDeleteClick(creatorRole)}
+                    onClick={onDeleteClick(index)}
                   >
                     Delete
                   </button>

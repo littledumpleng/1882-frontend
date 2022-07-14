@@ -114,7 +114,7 @@ export const Media = () => {
       .then((res) => {
         const selectOptions = res.data.map(creator => ({
           value: creator.id,
-          label: `${creator.name} (id: ${creator.id})`
+          label: `${creator.firstName} ${creator.lastName} (id: ${creator.id})`
         }));
         setCreatorOptions(selectOptions);
       })

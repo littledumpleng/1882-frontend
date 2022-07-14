@@ -47,6 +47,7 @@ export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgro
           setGenres([]);
           setThemes([]);
           setBackgrounds([]);
+          setCreatorRoles([]);
         })
         .catch((error) => {
           setResponseMessage('Error');

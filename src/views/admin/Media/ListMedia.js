@@ -43,20 +43,26 @@ export const ListMedias = ({ medias, setLastChangeOccured }) => {
             {medias.map(media => (
               <tr key={media.id} >
                 {allColumnsArray.map(key => {
-                  return key === 'creatorRoles' ? (
-                    <td key={key}>
-                      <ul>
-                        {media[key] ? media[key].map(creatorRole => (
-                          <p>
+                  if (key === 'creatorRoles') {
+                    return (
+                      <td key={key}>
+                        {media[key] ? media[key].map((creatorRole, index) => (
+                          <p key={index}>
                             &#8226; {`${creatorRole.roleName} - ${creatorRole.firstName} ${creatorRole.lastName}`}
                           </p>
-                        ))
-                          : null}
-                      </ul>
-                    </td>
-                  ) : (
-                    <td key={key}>{media[key]}</td>
-                  )
+                        )) : null}
+                      </td>
+                    );
+                  } else if (Array.isArray(media[key])) {
+                    return (
+                      <td key={key}>{media[key].map(item => item.name).join(', ')}</td>
+                    );
+                  }
+                  else {
+                    return (
+                      <td key={key}>{media[key]}</td>
+                    );
+                  }
                 })}
                 <td>
                   <button

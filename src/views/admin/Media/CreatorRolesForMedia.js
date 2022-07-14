@@ -24,8 +24,6 @@ export const CreatorRolesForMedia = ({ creatorRoles = [], setCreatorRoles, creat
     setCreatorRoles(newValues);
   }
 
-  console.log("creatorRoles", creatorRoles);
-
   return (
     <div className="column is-one-third">
       <p>Creators</p>

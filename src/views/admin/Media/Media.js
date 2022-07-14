@@ -148,7 +148,7 @@ export const Media = () => {
         <div className="content_element">
           <a href='/admin'>Back</a>
         </div>
-        <div className="content_element">
+        <div className="content_element" style={{ overflow: 'scroll' }}>
           <ListMedias
             medias={medias}
             setLastChangeOccured={setLastChangeOccured}

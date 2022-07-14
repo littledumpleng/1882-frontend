@@ -140,7 +140,7 @@ export const Homepage = () => {
             <div className="content">
               <div className="box">
                 {mediaResults.length > 0 ? mediaResults.map(media => {
-                  const { title, description, releaseDate, mediaTypes, genres, themes, backgrounds } = media;
+                  const { title, description, releaseDate, mediaTypes = [], genres = [], themes = [], backgrounds = [], creatorRoles = [] } = media;
                   return (
                     <div className="content_element">
                       <h3>{title}</h3>
@@ -160,6 +160,16 @@ export const Homepage = () => {
                       )}
                       {description && (
                         <p><span className='has-text-grey mr-2'>Description: </span>{description}</p>
+                      )}
+                      {creatorRoles.length > 0 && (
+                        <>
+                          <p className='has-text-grey'>Creators:</p>
+                          <ul>
+                            {creatorRoles.map((creatorRole, index) => (
+                              <li key={index}>{`${creatorRole.roleName} - ${creatorRole.firstName} ${creatorRole.lastName}`}</li>
+                            ))}
+                          </ul>
+                        </>
                       )}
                     </div>
                   )

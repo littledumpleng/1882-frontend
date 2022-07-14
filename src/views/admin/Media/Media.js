@@ -15,6 +15,9 @@ export const Media = () => {
   const [genreOptions, setGenreOptions] = useState([]);
   const [themeOptions, setThemeOptions] = useState([]);
   const [backgroundOptions, setBackgroundOptions] = useState([]);
+  const [creatorOptions, setCreatorOptions] = useState([]);
+  const [roleOptions, setRoleOptions] = useState([]);
+
 
   // get media
   useEffect(() => {
@@ -102,6 +105,42 @@ export const Media = () => {
       });
   }, [lastChangeOccured]);
 
+  // get creators
+  useEffect(() => {
+    axios.get(
+      `${BASE_API_URL}/creator`,
+      DEFAULT_AXIOS_OPTIONS
+    )
+      .then((res) => {
+        const selectOptions = res.data.map(creator => ({
+          value: creator.id,
+          label: `${creator.name} (id: ${creator.id})`
+        }));
+        setCreatorOptions(selectOptions);
+      })
+      .catch((error) => {
+        console.error("error", error)
+      });
+  }, [lastChangeOccured]);
+
+  // get roles
+  useEffect(() => {
+    axios.get(
+      `${BASE_API_URL}/role`,
+      DEFAULT_AXIOS_OPTIONS
+    )
+      .then((res) => {
+        const selectOptions = res.data.map(role => ({
+          value: role.id,
+          label: `${role.name} (id: ${role.id})`
+        }));
+        setRoleOptions(selectOptions);
+      })
+      .catch((error) => {
+        console.error("error", error)
+      });
+  }, [lastChangeOccured]);
+
   return (
     <div>
       <h1>Medias (Admin)</h1>
@@ -122,6 +161,8 @@ export const Media = () => {
             genreOptions={genreOptions}
             themeOptions={themeOptions}
             backgroundOptions={backgroundOptions}
+            creatorOptions={creatorOptions}
+            roleOptions={roleOptions}
           />
         </div>
         <div className="content_element">
@@ -132,6 +173,8 @@ export const Media = () => {
             genreOptions={genreOptions}
             themeOptions={themeOptions}
             backgroundOptions={backgroundOptions}
+            creatorOptions={creatorOptions}
+            roleOptions={roleOptions}
           />
         </div>
       </div>

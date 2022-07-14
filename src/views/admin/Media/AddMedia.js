@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
+import { CreatorRolesForMedia } from './CreatorRolesForMedia';
 
-export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgroundOptions, setLastChangeOccured }) => {
+export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgroundOptions, creatorOptions, roleOptions, setLastChangeOccured }) => {
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -12,6 +13,7 @@ export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgro
   const [genres, setGenres] = useState([]);
   const [themes, setThemes] = useState([]);
   const [backgrounds, setBackgrounds] = useState([]);
+  const [creatorRoles, setCreatorRoles] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onCreateClick = () => {
@@ -122,6 +124,12 @@ export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgro
           isSearchable={true}
         />
       </div>
+      <CreatorRolesForMedia
+        creatorOptions={creatorOptions}
+        roleOptions={roleOptions}
+        creatorRoles={creatorRoles}
+        setCreatorRoles={setCreatorRoles}
+      />
       <div className="column">
         <button
           className="button is-info"

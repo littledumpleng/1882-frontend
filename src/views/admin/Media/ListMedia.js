@@ -20,6 +20,14 @@ export const ListMedias = ({ medias, setLastChangeOccured }) => {
     }
   }
 
+  const allColumns = new Set();
+  for (const media of medias) {
+    for (const key of Object.keys(media)) {
+      allColumns.add(key);
+    }
+  }
+  const allColumnsArray = Array.from(allColumns);
+
   return (
     <>
       <h3 className='has-text-left is-size-4 mb-2'>Existing Medias</h3>
@@ -27,14 +35,29 @@ export const ListMedias = ({ medias, setLastChangeOccured }) => {
         <table className="table is-bordered is-striped">
           <thead>
             <tr>
-              {Object.keys(medias[0]).map(key => <th key={key}>{key}</th>)}
+              {allColumnsArray.map(key => <th key={key}>{key}</th>)}
               <th></th>
             </tr>
           </thead>
           <tbody>
             {medias.map(media => (
               <tr key={media.id} >
-                {Object.values(media).map((value, index) => <td key={index}>{value}</td>)}
+                {allColumnsArray.map(key => {
+                  return key === 'creatorRoles' ? (
+                    <td key={key}>
+                      <ul>
+                        {media[key] ? media[key].map(creatorRole => (
+                          <p>
+                            &#8226; {`${creatorRole.roleName} - ${creatorRole.firstName} ${creatorRole.lastName}`}
+                          </p>
+                        ))
+                          : null}
+                      </ul>
+                    </td>
+                  ) : (
+                    <td key={key}>{media[key]}</td>
+                  )
+                })}
                 <td>
                   <button
                     className="button is-small is-danger ml-2"

@@ -30,6 +30,10 @@ export const AddMedia = ({ mediaTypeOptions, genreOptions, themeOptions, backgro
           genreIds: genres.map(genre => genre?.value),
           themeIds: themes.map(theme => theme?.value),
           backgroundIds: backgrounds.map(background => background?.value),
+          creatorRoles: creatorRoles.map(creatorRole => ({
+            creatorId: creatorRole.creator.value,
+            roleId: creatorRole.role.value,
+          }))
         },
         DEFAULT_AXIOS_OPTIONS
       )

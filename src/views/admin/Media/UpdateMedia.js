@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Select from 'react-select';
 import { BASE_API_URL, DEFAULT_AXIOS_OPTIONS } from '../../../AppConstants';
+import { CreatorRolesForMedia } from './CreatorRolesForMedia';
 
-export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptions, backgroundOptions, setLastChangeOccured }) => {
+export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptions, backgroundOptions, creatorOptions, roleOptions, setLastChangeOccured }) => {
 
   const [mediaId, setMediaId] = useState('');
   const [title, setTitle] = useState('');
@@ -13,6 +14,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptio
   const [genres, setGenres] = useState([]);
   const [themes, setThemes] = useState([]);
   const [backgrounds, setBackgrounds] = useState([]);
+  const [creatorRoles, setCreatorRoles] = useState([]);
   const [responseMessage, setResponseMessage] = useState(null);
 
   const onUpdateClick = () => {
@@ -29,6 +31,10 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptio
           genreIds: genres.map(genre => genre?.value),
           themeIds: themes.map(theme => theme?.value),
           backgroundIds: backgrounds.map(background => background?.value),
+          creatorRoles: creatorRoles.map(creatorRole => ({
+            creatorId: creatorRole.creator.value,
+            roleId: creatorRole.role.value,
+          }))
         },
         DEFAULT_AXIOS_OPTIONS
       )
@@ -52,7 +58,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptio
         DEFAULT_AXIOS_OPTIONS
       )
         .then((res) => {
-          const { title, description, releaseDate, mediaTypes, genres, themes, backgrounds } = res.data;
+          const { title, description, releaseDate, mediaTypes, genres, themes, backgrounds, creatorRoles } = res.data;
           setTitle(title);
           setDescription(description);
           setReleaseDate(releaseDate);
@@ -60,6 +66,16 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptio
           setGenres(genres.map(genre => ({ value: genre.id, label: genre.name })));
           setThemes(themes.map(theme => ({ value: theme.id, label: theme.name })));
           setBackgrounds(backgrounds.map(background => ({ value: background.id, label: background.name })));
+          setCreatorRoles(creatorRoles.map(creatorRole => ({
+            creator: {
+              value: creatorRole.creatorId,
+              label: `${creatorRole.firstName} ${creatorRole.lastName}`
+            },
+            role: {
+              value: creatorRole.roleId,
+              label: creatorRole.roleName
+            }
+          })));
         })
         .catch((error) => {
           console.error("error", error)
@@ -72,6 +88,7 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptio
       setGenres([]);
       setThemes([]);
       setBackgrounds([]);
+      setCreatorRoles([]);
     }
   }, [mediaId]);
 
@@ -165,6 +182,12 @@ export const UpdateMedia = ({ medias, mediaTypeOptions, genreOptions, themeOptio
           isSearchable={true}
         />
       </div>
+      <CreatorRolesForMedia
+        creatorOptions={creatorOptions}
+        roleOptions={roleOptions}
+        creatorRoles={creatorRoles}
+        setCreatorRoles={setCreatorRoles}
+      />
       <div className="column is-one-third">
         <button
           className="button is-primary"

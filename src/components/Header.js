@@ -30,14 +30,14 @@ export const Header = (props) => {
           <div className="navbar-end">
             <a href="/" className="navbar-item">Home</a>
             <a href="/about" className="navbar-item">About</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKuRaUKoiOsC6WqKelE7ayX1eRFjXq3xioSPq60jdxPhmmFA/viewform" className="navbar-item">Suggestions</a>
-            <a href="/featured" className="navbar-item">Reviews</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKuRaUKoiOsC6WqKelE7ayX1eRFjXq3xioSPq60jdxPhmmFA/viewform" target="_blank" rel="noopener noreferrer" className="navbar-item">Suggestions</a>
+            {/* <a href="/featured" className="navbar-item">Reviews</a> */}
             <a href="/resources" className="navbar-item">Resources</a>
             <a href="/contact" className="navbar-item">Contact</a>
-            <a href="https://www.facebook.com/1882ProjectFoundation/" className="navbar-item">{facebook}</a>
-            <a href="https://www.instagram.com/1882foundation/?hl=en" className="navbar-item">{instagram}</a>
-            <a href="https://www.youtube.com/channel/UC00NyHsuZW5OpklnE-mLwRw" className="navbar-item">{youtube}</a>
-            <a href="https://1882foundation.org" className='navbar-item'>
+            <a href="https://www.facebook.com/1882ProjectFoundation/" target="_blank" rel="noopener noreferrer" className="navbar-item">{facebook}</a>
+            <a href="https://www.instagram.com/1882foundation/?hl=en" target="_blank" rel="noopener noreferrer" className="navbar-item">{instagram}</a>
+            <a href="https://www.youtube.com/channel/UC00NyHsuZW5OpklnE-mLwRw" target="_blank" rel="noopener noreferrer" className="navbar-item">{youtube}</a>
+            <a href="https://1882foundation.org" target="_blank" rel="noopener noreferrer" className='navbar-item'>
               <button className="main-btn">Main Site</button>
             </a>
           </div>
